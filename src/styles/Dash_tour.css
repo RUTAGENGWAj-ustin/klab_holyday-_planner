@@ -1,0 +1,53 @@
+.tour-card.dash{
+          margin-top: 20px;
+          display: flex;
+          border: 1px solid black;
+          gap: 20px;
+}
+.all-description-dash{
+          gap: 1rem;
+          display: flex;
+          margin-top: 3rem;
+}
+
+.card-img-img img{
+          width: 15rem;
+          height: 16rem;
+}
+.card-name-name{
+          width: 10rem;
+            margin-top: 3rem;
+}
+.all-description-dash .description-a{
+          width: 14rem;
+}
+.all-description-dash .description-b{
+          width: 14rem;
+}
+.all-description-dash .price-and-book{
+          display: flex;
+          gap: 2rem;
+}
+.book a{
+          text-decoration: none;
+width: 140px;
+height: 50px;
+background: #C29D59;
+border: none;
+outline: none;
+border-radius: 5px;
+display: inline-flex;
+justify-content: center;
+align-items: center;
+font-size: 16px;
+line-height: 26px;
+padding: 0;
+color: #ffffff;
+font-weight: bold;
+text-transform: uppercase;
+position: relative;
+cursor: pointer;
+overflow: hidden;
+transition: 0.8s cubic-bezier(0.22, 0.78, 0.45, 1.02);
+z-index: 2;
+}

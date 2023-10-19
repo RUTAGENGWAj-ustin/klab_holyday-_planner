@@ -1,0 +1,201 @@
+
+
+
+*{background-color:none;}
+body{
+  background-color:#141625;
+}
+/* styles.css */
+
+/* Style the container div */
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #0f193f;
+  border-radius: 25px;
+  
+}
+/* .sidebar{
+ background-color: rgb(9, 10, 9);
+}
+.sidebar ul{
+  display: block;
+} */
+
+/* Style the form */
+form {
+  display: flex;
+  flex-wrap: wrap;
+}
+.title{
+  align-items: center;
+  padding-left: 20%;
+}
+.con2.n{
+  border-bottom: 1px solid rgb(84, 84, 139);
+}
+
+.title h1{
+  color: #e8e8e9;
+}
+
+/* Style con1 and con2 divs */
+.con1 {
+  padding: 10px;
+  box-sizing: border-box;
+   /* Display con1 elements in a row */
+  display: inline;
+  ; /* Stack child elements in a column */
+}
+
+.con2 {
+  display: flex;
+  padding: 10px;
+  box-sizing: border-box;
+/* Display con2 elements in a column */
+  /* Stack child elements in a column */
+}
+.con3{
+  display: block;
+  margin: 10px;
+}
+.form1{
+  display: block;
+}
+
+/* Style labels */
+label {
+  display: flex;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #ccc;
+}
+
+/* Style input fields */
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px  #ccc;
+  border-radius: 4px;
+  background-color: #293567;
+  color: #ccc;
+}
+
+
+/* Style the "p" tags */
+p {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #ccc;
+}
+
+
+/* Style the "i" tag (assuming it's an icon) */
+
+
+
+
+button{
+  background-color: #293567;
+  width: 95%;
+  padding: 8px;
+  color: #ccc;
+  border-radius: 20px;
+  border: navy;
+  margin: 4px;
+}
+.buttons{
+  display: block;
+}
+/* Add more styles as needed */
+.change{
+display: flex;
+margin-left: 49%;
+}
+.con3 select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff; /* Background color for the select box */
+  font-size: 16px; /* Adjust font size as needed */
+}
+.con3 input[type="date"] {
+  padding: 5px; /* Add some padding to the input */
+  border: 1px solid #ccc; /* Add a border around the input */
+  border-radius: 4px; /* Add some border radius for rounded corners */
+  width: 100%; /* Make the input take up the full width of the container */
+  box-sizing: border-box; /* Include padding and border in the input's total width */
+}
+.save{
+  background-color: #326fde;
+}
+.con2.f p{
+  border-right: 2px solid white;
+  background-color: #293567;
+  padding: 10px;
+}
+
+
+@media screen and (max-width : 700px) {
+
+  .con1 {
+    padding: 10px;
+    box-sizing: border-box;
+     /* Display con1 elements in a row */
+    display: inline;
+    ; /* Stack child elements in a column */
+  }
+  
+  .con2 {
+    display: inline;
+    padding: 10px;
+    box-sizing: border-box;
+  /* Display con2 elements in a column */
+    /* Stack child elements in a column */
+  }
+  .con3{
+    display: block;
+    margin: 10px;
+    width: 33.3%;
+  } 
+
+  
+}
+.con3.n{
+  display: block;
+  margin: 10px;
+  width: 33.3%;
+  margin-left: 30px;
+} 
+h3{
+  color: #8baeed;
+}
+.container-2{
+  max-width: 95%;
+  margin-left: 120px;
+  padding: 60px;
+  background-color: #0f193f;
+}
+.container-2 .con1 h1{
+  color: rgb(149, 188, 188);
+}
+.con2 p{
+border-right: 1px solid #326fde;
+max-width: 8.3%;
+width:  8.3%;
+padding: 3px;
+background-color: #07378f;
+margin: 3px;
+  
+}
+.con2 .up{
+  text-size-adjust: 24px;
+  color: rgb(155, 172, 155);
+  background-color: #0f193f;
+  border-bottom: 1px solid #134dba;
+}

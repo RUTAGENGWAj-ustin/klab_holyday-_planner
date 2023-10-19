@@ -1,0 +1,47 @@
+
+.user-container{
+          gap: 2rem;
+          padding-top: 20px;
+}
+
+.listofuser{
+          border: 1px solid rgb(169, 143, 143);
+          display: flex;
+          gap: 6rem;
+          border: none;
+          margin: 5px 0;
+          border-radius: 5px;
+          box-shadow: 0 0  10px black;
+
+}
+.listofuser img{
+          border-radius: 5px;
+          width: 100px;
+          height: 100px;
+          
+}
+.listofuser .names h1{
+          margin-top: 20px;
+}
+.listofuser .Email h1{
+          margin-top: 20px;
+}
+.listofuser .pass h1{
+          margin-top: 20px;
+}
+.listofuser .Edit{
+          margin: 0;
+          padding: 0;
+}
+.listofuser .Edit button{
+          background-color: #C29D59;
+          color: aliceblue;
+          width: 13rem;
+          height: 3rem;
+          border-radius: 20px;
+          border: none;
+          margin-top: 20px;
+}
+.listofuser .Edit button p{
+          color: #ffffff;
+}

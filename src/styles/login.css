@@ -1,0 +1,92 @@
+.login-form-container{
+          border: 1px solid black;
+          width: fit-content;
+          display: block;
+          margin-left: 30rem;
+          margin-top: 5rem;
+          margin-bottom: 5rem;
+          border-radius: 20px;
+}
+.login-form-container form{
+          padding: 30px;
+}
+.login-form-title{
+   display: block;
+}
+.login-form-title h1{
+          color: #C29D59;
+          border-left: 3px solid black;
+          padding-left: 10px;
+          margin-bottom: 3rem;
+}
+
+.login-form-e{
+          display: block;
+          margin-top: 1.5rem;
+          margin-bottom: 2rem;          
+}
+.login-form-p{
+   display: block;
+   margin-top: 1.5rem;
+   margin-bottom: 2rem;          
+}
+.login-form-r{
+   display: block;
+   margin-top: 1.5rem;
+   margin-bottom: 2rem;          
+}
+.login-form-input{
+   width: 100%;
+   height: 50px;
+   background: transparent;
+   padding: 10px 45px;
+   border: 1px solid #2B2B2B;;
+   border-radius: 5px;
+   color: #2B2B2B;;
+   font-size: 16px;
+   line-height: 26px;
+}
+
+
+
+input[type="radio"] {
+   
+   margin-right: 20px;
+   width: 30px;
+   height: 15px;
+ }
+ 
+  .lig-in-button{
+      width: 80% ;
+      margin: 10%;
+      height: 50px;
+      border-radius: 10px;
+      background-color: #C29D59;
+      border: none;
+      color: aliceblue;
+ }
+ .lig-in-button p{
+   color: aliceblue;
+   font-size: 30px;
+   font-family: Arial, Helvetica, sans-serif;
+ } 
+ 
+
+ @keyframes change {
+   from {background-color:  #C29D59;}
+   to {background-color:#2B2B2B;}
+ }
+ 
+ .lig-in-button:hover {
+   background-color:#2B2B2B;
+   animation-name: change;
+   animation-duration: 4s;/* Apply animation */
+ }
+ .login-SM{
+   margin: 30px;
+ }
+ .login-SM-list{
+   display: flex;
+   gap: 30px;
+ }
+ 

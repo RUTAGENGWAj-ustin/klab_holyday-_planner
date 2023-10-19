@@ -1,0 +1,138 @@
+.np{
+      margin-left: 15%;
+      display: block;
+      
+}
+.outlet{
+  margin-left: 20px;
+}
+.main-dash{
+         
+          margin: 0;
+          width: 100%;
+          height: 100%;
+          padding: 0;
+          display: flex;
+          border-radius: 30px;
+          background-color: #FFFFFF;
+}
+.left-dash{
+      position: fixed;
+       margin-top:0rem;
+          padding-top: 30px;
+          width: 15%;
+          height: 100%;
+          background-color: #FFFFFF;
+          display: block;
+          padding-left: 40px;
+          border-radius: 30px 0 0 30px;
+          box-shadow: 0 0 20px rgba(0,0,0,0.3);
+
+}
+.left-dash .profile{
+    display: flex;
+    margin-bottom: 30px;
+}
+.left-dash .profile .prfile-image{
+          width: 50%;
+         
+}
+.left-dash .profile .prfile-image img{
+          width: 60px;
+          height: 60px;
+          border: 2px solid #FF8097;
+          border-radius: 50%;
+}
+.left-dash .dash-nav{
+          padding-top: 40px;
+          padding-bottom: 40px;
+}
+.left-dash .dash-nav .inner-dash-nav{
+          display: block;
+}
+.left-dash .dash-nav .inner-dash-nav ul{
+          display: block;
+}
+
+.left-dash .dash-nav .inner-dash-nav ul li{
+          display: flex;
+          gap: 2rem;
+          margin: 25px 0 ;
+}
+ul li .dash-nav-icon{
+          width: 25px;
+          height: 25px;
+         
+}
+.dash-popular-place{
+      display: block;
+}
+.dash-popular-place-title{
+         display: block;
+         margin-bottom: 30px;
+}
+.dash-popular-place-title h1{
+          font-size: 20px;
+          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.dash-popular-place-list{
+          display: block;
+          margin-bottom: 20px;
+}
+.dash-popular-place-list ul{
+          display: block;
+}
+.dash-popular-place-list ul li,.NavLink{
+      display: flex;
+}
+.NavLink{
+      display: flex;
+}
+.dash-popular-place-list ul li .places-icon{
+          margin-right: 3rem;
+         
+}
+.dash-popular-place-list ul li .places-icon .icon-o{
+          width: 25px;
+          height: 25px;
+          color: #FF8097;
+}
+.dash-popular-place-list ul li .places-icon .icon-m{
+          width: 25px;
+          height: 25px;
+          color: #8095ff;
+}
+.dash-log-out{
+   border-top: 1px solid rgba(69, 92, 93,0.4);
+   display: flex;
+   padding-top: 40px;
+   padding-bottom: 40px;
+}
+.Log-out-icon{
+width: 25px;
+height: 25px;
+margin-left: 3rem;
+margin-right: 2rem;
+}
+.right-dash{
+          width: 100%;
+          margin-left: 0%;
+          height: 80px;
+          padding: 20px;
+          background-color: rgb(236, 239, 236);
+          box-shadow: 0 0 10px black;
+}
+.modes{
+      display: flex;
+}
+.dush-top-menu{
+      display: flex;
+      gap: 40rem;
+}
+.dash-setting{
+      border-right: 1px solid black;
+}
+.charts{
+     margin-top: 100px;
+     margin-right: 100px;
+}

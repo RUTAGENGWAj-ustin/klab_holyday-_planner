@@ -1,0 +1,142 @@
+.nav1 {
+          background-color: #2B2B2B;
+          background: transparent;
+          
+        }
+        .menu-nav1{
+          width: 100%;
+          display: flex;
+          gap: 50%;
+        }
+.allpages {
+          margin-top: 12rem; 
+          position: absolute; 
+          top: 4rem; 
+          display: flex;
+          flex-direction: row;
+          gap: 33rem;
+        }
+        .pad {
+          margin-top: 5rem;
+          
+          top: 4rem; 
+          padding-left: 3.9rem;
+          margin-left: 12rem;
+        }
+        .all {
+          background-color: #393939;
+          margin: 0; 
+          padding-left: 3rem;
+          width: 49.5rem;
+          height: 30rem;
+          padding-top: 2rem;
+          margin-bottom: 2rem;
+          margin-top: 3.5rem;
+          text-decoration: none; 
+        }
+        .all ul{
+          margin-left: 12rem;
+        }
+        li {
+          text-decoration: none; /* This removes the underline or decoration */
+          list-style: none;
+          /* background-color: red; */
+        }
+        .all ul .li a{
+          color: #ffffff;
+          font-family: 'Cormorant Garamond';
+          font-size: 30px;
+          text-decoration: none;
+          line-height: max(4.7vh, 25px);
+          font-weight: bold;
+          position: relative;
+          display: inline-flex;
+          transition: 0.8s cubic-bezier(0.22, 0.78, 0.45, 1.02);
+        }
+        .all ul li a:hover{
+            text-decoration: line-through;
+            color: #C29D59;
+        }
+        .Menu-logo-icon-white {
+          opacity: 0.3;
+          margin-left: 100rem;
+          margin-top: 22rem;
+          padding-top: 3rem;
+          
+         
+          
+        }
+        .so {
+        display: block;
+        margin-right: -5px;
+        }
+        .so .Menu-social {
+          margin-top: 17rem;
+          margin-right: -5px;
+          display: flex;
+         
+          padding-top: 5rem;
+          gap: 1rem;
+          position: absolute;
+        }
+        .so .Menu-social ul{
+          gap: 2rem;
+          list-style: none;
+        }
+        .so .Menu-social ul li{
+          margin-top: 1rem;
+        }
+       
+        .so .Menu-social .so2 {
+          width: 2rem;
+          height: 2rem;
+          color: #C29D59;
+        }
+        .so .Menu-social .so3 {
+          width: 2rem;
+          height: 2rem;
+          color: #C29D59;
+        }
+        
+        .navpost {
+          position: absolute;
+          /* background-color: red; */
+        }
+        .holder {
+          position: fixed;
+            /* border: 1px solid red; */
+          top:0;
+          left: 0;
+          bottom: 0;
+         z-index: 8888;
+         background-color: #2B2B2B;
+         right: 0;
+        }
+        /* Scroll animation */
+        @keyframes scrollFromRight {
+          from {
+            transform: translateX(100%); /* Move from right to left */
+          }
+          to {
+            transform: translateX(0);
+          }
+        }
+        /* Apply the animation to the elements you want to animate */
+        .navpost {
+          animation: scrollFromRight 1s ease; /* Adjust the duration and easing as needed */
+        }
+        .l4 {
+          animation: scrollFromRight 3s ease 2s; /* Delay the login link's animation by 0.5s */
+        }
+        .holder
+        {
+           animation: scrollFromRight 2s ease;
+        }
+        .close_icon
+        {
+          color: #ffffff;
+          margin-left: 0;
+          width: 5rem;
+          height: 5rem;
+          margin-top: 7rem;
+        }
