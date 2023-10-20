@@ -1,6 +1,7 @@
 
 
 import React from "react";
+import { useState,useEffect } from "react";
 
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/home";
@@ -29,10 +30,13 @@ import Layout1 from "./dash-pages/layout_1.jsx";
 import User from "./dash-pages/User";
 import Dash_tour from "./pages/dash_tour";
 import Single_tour from "./pages/single_tour";
+import api from "./Api/api";
 
 
 
 const App = () => {
+
+
   return (
     <div>
       

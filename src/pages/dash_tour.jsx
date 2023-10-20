@@ -2,8 +2,11 @@ import React from "react";
 import Tours from "./list-of-all-tour-arr";
 
 const Dash_tour = () =>{
+ 
 return(
+    
           <div>
+            
           {Tours.map((item, index) => (
                     <div className="tour-card dash">
                               <div className="card-img-img">

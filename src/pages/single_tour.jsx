@@ -4,14 +4,46 @@ import Tours from "./list-of-all-tour-arr";
 import {BsFillPersonFill} from "react-icons/bs";
 import {AiTwotonePhone} from "react-icons/ai";
 import {FaEnvelope,FaBook} from"react-icons/fa";
+import { useState,useEffect } from "react";
+
+import api from "../Api/api";
 
 const Single_tour = () =>{
+
+
+   const [posts,setPosts] = useState([]);
+
+
+  useEffect(() => {
+    const fetchapi = async () => {
+      try {
+        const response = await api.get('https://holiday-planner-4lnj.onrender.com/api/v1/auth/users/getOne/:email ');
+        setPosts(response.data);  
+      } catch(err){
+        if(err.response){
+  console.log(err.response.data.massage);
+  console.log(err.response.status);
+  console.log(err.response.headers);
+        }
+        else{
+              console.log(posts);
+          console.log(`Error:${err.message}`);
+        }
+      }
+    }
+    fetchapi();
+    console.log("wwe");
+    console.log(posts);
+  
+  },[])
          const {Tid} = useParams();
 
        
 
-         const product = Tours.find((product) => product.id ===Tid);
-          const {id,image,name,description_a,description_b,Duration,Group_Size,price} = product;
+         const product = posts.find((product) => product._id ===Tid);
+          const {Description,GroupSize,Seats,Title,backdropImage,destination,fromMonth,__v,_id,} = product;
+          console.log("product")
+          console.log(product)
 
             return(
 
@@ -20,7 +52,7 @@ const Single_tour = () =>{
                     <div className="contact">
                     <section className="main-banner inner-banner overlay back-image"  
                     style={{
-        backgroundImage: `url(${image})`,
+        backgroundImage: `url(${backdropImage})`,
         backgroundSize: 'cover', // Adjust the background image size as needed
               
       }}>
@@ -29,7 +61,7 @@ const Single_tour = () =>{
                 <div className="row">
                     <div className="col-lg-12">
                         <div className="banner-content wow fadeup-animation" >
-                            <h1 className="h1-title">{name}</h1>
+                            <h1 className="h1-title">{Title}</h1>
                         </div>
                     </div>
                 </div>

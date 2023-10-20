@@ -27,7 +27,7 @@ const Home = () => {
                               </section >
                               <div className="bannerform-1">
                               <div class="banner-form">
-                            <form>
+                            <form className="formxxx">
                                 <div className="input-col wow fadeup-animation" >
                                     <span className="form-control-span where-wrap">
                                         <span className="icon"><i class="fas fa-map-marker-alt" ></i></span>

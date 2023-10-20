@@ -3,6 +3,9 @@
           gap: 2rem;
           padding-top: 20px;
 }
+/* table{
+          border: 1px solid rgb(169, 143, 143);        
+}
 
 .listofuser{
           border: 1px solid rgb(169, 143, 143);
@@ -18,30 +21,91 @@
           border-radius: 5px;
           width: 100px;
           height: 100px;
+          border-right: 1px solid rgba(0,0,0,0.3);
+          
           
 }
-.listofuser .names h1{
+.listofuser .names{
+           border-right: 1px solid rgba(0,0,0,0.3);
+          width: 7%;
+          padding: 5px;
+}
+.listofuser .names p{
+         margin-left: 1px;
+          margin-top: 20px;
+          align-items: start;
+
+}
+.listofuser .Email{
+          width: 200px;
+           border-right: 1px solid rgba(0,0,0,0.3);
+}
+.listofuser .Email p{
+          width: 200px;
           margin-top: 20px;
 }
-.listofuser .Email h1{
-          margin-top: 20px;
+.listofuser .pass{
+           border-right: 1px solid rgba(0,0,0,0.3);
+          width: 15%;
 }
-.listofuser .pass h1{
+.listofuser .pass p{
+          width:200px;
           margin-top: 20px;
 }
 .listofuser .Edit{
           margin: 0;
           padding: 0;
+}*/
+
+.user-title{
+          font-size: 50px;
+          font-weight: bold;
+          font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+          color: #C29D59;
+          border-left: 3px solid black;
+          border-bottom:1px solid #C29D59;
+          padding-bottom: 20px;
+          padding-left: 30px;
+          margin-left: 15%;
+          max-width: 15%;
 }
-.listofuser .Edit button{
+table  td button{
           background-color: #C29D59;
           color: aliceblue;
-          width: 13rem;
+          width: 8rem;
           height: 3rem;
           border-radius: 20px;
           border: none;
           margin-top: 20px;
 }
-.listofuser .Edit button p{
+table  td button p{
           color: #ffffff;
-}
+} 
+table {
+          width: 100%;
+          border-collapse: collapse;
+          margin: 10px 0;
+          font-family: Arial, sans-serif;
+        }
+        
+        /* Style the table header (thead) */
+        th {
+          background-color: #f2f2f2;
+          color: #333;
+          font-weight: bold;
+          padding: 10px;
+          border: 1px solid #ddd;
+          text-align: left;
+        }
+        
+        /* Style the table data cells (td) */
+        td {
+          padding: 10px;
+          border: 1px solid #ddd;
+          text-align: left;
+        }
+        
+        /* Style table rows alternatively for better readability */
+        tr:nth-child(even) {
+          background-color: #f5f5f5;
+        }

@@ -2,8 +2,10 @@
       margin-left: 15%;
       display: block;
       
+      
 }
 .outlet{
+      padding-top: 80px;
   margin-left: 20px;
 }
 .main-dash{
@@ -115,12 +117,14 @@ margin-left: 3rem;
 margin-right: 2rem;
 }
 .right-dash{
+       position: fixed;
           width: 100%;
           margin-left: 0%;
           height: 80px;
           padding: 20px;
-          background-color: rgb(236, 239, 236);
+          background-color:#FFFFFF;
           box-shadow: 0 0 10px black;
+         
 }
 .modes{
       display: flex;
@@ -135,4 +139,35 @@ margin-right: 2rem;
 .charts{
      margin-top: 100px;
      margin-right: 100px;
+}
+
+.dush-top-menu .modes{
+      display: flex;
+}
+.dush-top-menu .modes .dash-setting{
+       padding-right: 90px;
+}
+.dush-top-menu .modes .dash-setting .settings{
+      width: 30px;
+      height: 30px;
+     
+}
+.dush-top-menu .modes .mode-color{
+      padding-left: 50px;
+          display: flex;
+          gap: 2rem;
+}
+.dush-top-menu .modes .mode-color .sun{
+      width: 30px;
+      height: 30px;
+      color: #FFCA45;
+}
+.dush-top-menu .modes .mode-color .star{
+      width: 30px;
+      height: 30px;
+     
+}
+.dush-top-menu .modes .mode-color .mode-text{
+      font-size: 20px;
+      margin: 5px;
 }

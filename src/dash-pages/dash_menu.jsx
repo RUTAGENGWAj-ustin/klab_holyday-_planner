@@ -16,12 +16,15 @@ const Dash_menu = () =>{
                      </div>
                     
                      <div className="modes">
-                              <div> 
+                             
                                         <div className="dash-setting">
-                                                  <AiOutlineSetting/>
+                                                  <AiOutlineSetting className="settings"/>
                                                   </div> 
-                                        <BsSun className="sun"/>Dark Mode</div>
+                                                  <div className="mode-color">
+                                                    <BsSun className="sun"/>
+                                                    <div className="mode-text">Dark Mode</div>
                                         <BsMoonStars className="star"/>
+                                        </div>
                                         </div>
                     </div>
            </div>
