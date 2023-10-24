@@ -98,7 +98,7 @@ const Tour_List = () =>{
                                                                                                     <h1>{item.price}</h1>
                                                                                                     </div>
                                                                                                     <div className="book">
-                                                                                                    <a href={`/Tour_list/${item._id}`}>book now</a>
+                                                                                                    <a href={`/Tour_list/${item.Title}`}>book now</a>
                                                                                                     </div>
                                                                                                 </div>
                                                                                           </div>

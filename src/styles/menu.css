@@ -140,3 +140,102 @@
           height: 5rem;
           margin-top: 7rem;
         }
+
+
+        /*responsiveness*/
+
+@media screen and (max-width:390px) {
+
+  
+    
+  
+  .menu-nav1{
+    width: 100%;
+    display: flex;
+    gap: 0%;
+  }
+.allpages {
+    margin-top: 5rem; 
+    position: absolute; 
+    top: 4rem; 
+    display: block;
+   
+    gap: 0rem;
+  }
+  .pad {
+    margin-top: 5rem;
+    width: 290px;
+    top: 4rem; 
+    padding-left: 0rem;
+    margin-left: 0rem;
+    opacity: 0;
+  }
+  .all {
+    background-color: #2B2B2B;
+    margin: 0; 
+    padding-left: 0rem;
+    width: 100%;
+    height: 10rem;
+    padding-top: 2rem;
+    margin-bottom: 2rem;
+    margin-top: 6.5rem;
+    text-decoration: none; 
+  }
+  .all ul{
+    margin-left: 8rem;
+  }
+  li {
+    text-decoration: none; /* This removes the underline or decoration */
+    list-style: none;
+    /* background-color: red; */
+  }
+  .all ul .li a{
+    color: #ffffff;
+    font-family: 'Cormorant Garamond';
+    font-size: 30px;
+    text-decoration: none;
+    line-height: max(4.7vh, 25px);
+    font-weight: bold;
+    position: relative;
+    display: inline-flex;
+    transition: 0.8s cubic-bezier(0.22, 0.78, 0.45, 1.02);
+  }
+  .all ul li a:hover{
+      text-decoration: line-through;
+      color: #C29D59;
+  }
+  .Menu-logo-icon-white {
+    opacity: 0.3;
+    margin-left: 100rem;
+    margin-top: 22rem;
+    padding-top: 3rem;
+    
+   
+    
+  }
+  .so {
+  display: block;
+  margin-right: -5px;
+  }
+  .so .Menu-social {
+    margin-top: 10rem;
+    margin-left: 5rem;
+    display: flex;
+   
+    padding-top: 5rem;
+    gap: 1rem;
+    position: absolute;
+  }
+  .so .Menu-social ul{
+    gap: 2rem;
+    list-style: none;
+    display: flex;
+  }
+  .so .Menu-social ul li{
+    margin-top: 1rem;
+  }
+.close_icon{
+  width: 50px;
+  height: 50px;
+}
+}

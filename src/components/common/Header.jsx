@@ -51,7 +51,7 @@ const Header = () =>{
                          </div>
                          <div className="header-2">
                                <div>
-                               <a href="#" title="Travel &amp; Tour"><img src="logo.png" alt="Logo"/></a>
+                               <a href="#" title="Travel &amp; Tour"><img className="logoheader2" src="logo.png" alt="Logo"/></a>
                                </div>
                                <div className="header-munu">
                                    <div><a href="/login" className="sec-btn" title="Reserve"><span>Login</span></a></div>  

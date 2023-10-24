@@ -171,3 +171,108 @@
           margin-left: auto;
           margin-bottom: 0;
       }
+
+
+
+
+
+/*responsiveness*/
+
+@media screen and (max-width:390px) {
+
+ 
+
+
+
+.header1{
+    opacity: 0;
+}
+    .header-2{
+        margin-top: -80px;
+        gap: 0px;
+        position: relative;
+        display: flex;
+        padding: 20px;
+        height: 80px;
+        background-color: #FFFFFF;
+        margin-left: 0px;
+        width: 100%;
+        z-index: 30;
+       
+}
+ 
+    .header-munu{
+        display: flex;
+        margin-left: 0px;
+        padding-left: 0px;
+    }
+    .logoheader2{
+width: 10rem;
+padding-right: 0;
+position: absolute;
+    }
+    .sec-btn {
+      opacity: 0;
+    }
+    .search{
+        padding-left: 0;
+        margin-left: 4rem;
+        margin-top: 10px;
+        justify-content: center;
+        align-items: center;
+    }
+    .search .search-icon{
+        border-radius: 50%;
+        border: 2px solid #000000;
+        justify-content: center;
+        align-items: center;
+        width: 70px;
+        height: 70px;
+        padding: 15px;
+        
+
+
+    }
+    .search .search-icon .search-icon-1{
+        height: 20px;
+        width: 20px;
+    }
+    .navigation-btn {
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        border: none;
+        outline: none;
+        background: #C29D59;
+        border: 2px solid #C29D59;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-left: 15px;
+        padding: 15px 13px;
+        position: relative;
+        transition: 0.8s cubic-bezier(0.22, 0.78, 0.45, 1.02);
+    }
+    .navigation-btn span {
+        height: 2px;
+        background: #ffffff;
+        margin-bottom: 4px;
+        display: block;
+        transition: 0.8s cubic-bezier(0.22, 0.78, 0.45, 1.02);
+    }
+    .navigation-btn span.first {
+        width: 25px;
+    }
+    .navigation-btn span.second {
+        width: 20px;
+        margin-left: auto;
+    }
+    .navigation-btn span.third {
+        width: 15px;
+        margin-left: auto;
+        margin-bottom: 0;
+    }
+
+    
+}

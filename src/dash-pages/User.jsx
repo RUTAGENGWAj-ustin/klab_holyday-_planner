@@ -3,36 +3,40 @@ import React from "react";
 import { useState,useEffect } from "react";
 import api from "../Api/api";
 import Edit_user from "./dash_edit_user";
+import { useQuery } from "@tanstack/react-query";
+import Axios from "axios";
+
 
 const User = () =>{
-         const [editUser,setEditUser] = useState(false);
+
+      const [editUser,setEditUser] = useState(false);
+      const [data,setData] = useState([])
+       const { data: tours ,isLoading,isError} = useQuery({
+        queryKey: ["tours"],
+        queryFn: async () => {
+          const res = await Axios.get('https://holiday-planner-4lnj.onrender.com/api/v1/auth/users')
+          console.log(res)
+          setData(res.data)
+          return res.data;
+        },
+      
+      });
+      if (isError) {
+        return<h1>Sorry there is an Error</h1>
+      }
+      if (isLoading) {
+        return<h1>loading...</h1>
+      }
+
+      
+       
 
          const handleEditClick = () => {
           setEditUser((previsEditMadel) => !previsEditMadel);
          };
-         const [userarry,setUserarry] = useState([]);
+        //  const [userarry,setUserarry] = useState([]);
 
-         useEffect(() => {
-          const fetchapi = async () => {
-            try {
-              const response = await api.get('https://holiday-planner-4lnj.onrender.com/api/v1/auth/users');
-              setUserarry(response.data);  
-            } catch(err){
-              if(err.response){
-        console.log(err.response.data.massage);
-        console.log(err.response.status);
-        console.log(err.response.headers);
-              }
-              else{
-                    console.log("wwe");
-                    console.log(userarry);
-                console.log(`Error:${err.message}`);
-              }
-            }
-          }
-          fetchapi();
-         
-        },[])
+     
 
 
           return(
@@ -57,7 +61,7 @@ const User = () =>{
             
           
          <tbody>   
-{userarry.map((item, index) => ( 
+{data.map((item, index) => ( 
         
           <tr key="">
           <td><img src="/logo.png" alt="" /></td>

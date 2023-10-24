@@ -15,7 +15,8 @@ const Home = () => {
                               <img src="houses.jpg" alt=""  className="image_scrool"/>
                               <div className="content">
                               
-                                    <h1 class="h1-title">Life is Short and <br/><span>The World is Wide.</span></h1>
+                                    <h1 class="h1-title">Life is Short and </h1>
+                                    <h1 class="h1-title"><span>The World is Wide.</span></h1>
                                     <p>A journey of a 1000 miles starts with a single step. Import the full demo content with 1 click and create a head-turning website for your travel agency.</p>
                                 
                               </div>

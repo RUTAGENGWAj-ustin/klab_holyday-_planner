@@ -21,7 +21,7 @@ const Menu = () =>{
                            <img src="white-logo.png" alt="log" />
                             </div>
                              <div className="">
-                                 <AiOutlineCloseCircle className="close_icon" />
+                                 <AiOutlineCloseCircle className="close_icon" onClick={()=> {window.location.href ='/'}} />
                               </div>
                   </div>
                   <div className="allpages">

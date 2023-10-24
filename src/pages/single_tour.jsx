@@ -12,12 +12,13 @@ const Single_tour = () =>{
 
 
    const [posts,setPosts] = useState([]);
+   const {Tid} = useParams();
 
 
   useEffect(() => {
     const fetchapi = async () => {
       try {
-        const response = await api.get('https://holiday-planner-4lnj.onrender.com/api/v1/auth/users/getOne/:email ');
+        const response = await api.get('https://holiday-planner-4lnj.onrender.com/api/v1/tour/getElement/',Tid);
         setPosts(response.data);  
       } catch(err){
         if(err.response){
@@ -36,14 +37,14 @@ const Single_tour = () =>{
     console.log(posts);
   
   },[])
-         const {Tid} = useParams();
+       
 
        
 
-         const product = posts.find((product) => product._id ===Tid);
-          const {Description,GroupSize,Seats,Title,backdropImage,destination,fromMonth,__v,_id,} = product;
-          console.log("product")
-          console.log(product)
+        //  const product = posts.find((product) => product._id ===Tid);
+        //   const {Description,GroupSize,Seats,Title,backdropImage,destination,fromMonth,__v,_id,} = product;
+        //   console.log("product")
+        //   console.log(product)
 
             return(
 

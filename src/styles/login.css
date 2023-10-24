@@ -70,6 +70,11 @@ input[type="radio"] {
    font-size: 30px;
    font-family: Arial, Helvetica, sans-serif;
  } 
+
+
+ .error-validation{
+  color: red;
+ }
  
 
  @keyframes change {
@@ -97,3 +102,23 @@ input[type="radio"] {
      text-decoration: none;
      font-size: 30px;
  }
+
+ /*responsiveness*/
+
+@media screen and (max-width:390px) {
+
+  .login-form-container{
+    border: 1px solid black;
+    width: fit-content;
+    display: block;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    border-radius: 20px;
+}
+.login-form-container form{
+    padding: 20px;
+}
+
+}

@@ -31,6 +31,17 @@ import User from "./dash-pages/User";
 import Dash_tour from "./pages/dash_tour";
 import Single_tour from "./pages/single_tour";
 import api from "./Api/api";
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+// import { getTodos, postTodo } from '../my-api'
+
+// Create a client
+const queryClient = new QueryClient()
 
 
 
@@ -39,7 +50,7 @@ const App = () => {
 
   return (
     <div>
-      
+      <QueryClientProvider client={queryClient}>
        <BrowserRouter>
     
         <Routes>
@@ -78,6 +89,7 @@ const App = () => {
          
         </Routes>
       </BrowserRouter> 
+      </QueryClientProvider>
      
     </div>
   );

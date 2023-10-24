@@ -47,13 +47,13 @@ const Dash_nav = () =>{
                              </div>
                              <div className="dash-popular-place-list">
                                        <ul>
-                                                 <li><div className="places-icon"><GoDotFill className="icon-o"/></div> <span>Oslo</span>/Norway</li>
-                                                 <li><div className="places-icon"><GoDotFill className="icon-m"/></div> <span>Muai</span>/Hawaii</li>
+                                                 <li><div className="places-icon"><GoDotFill className="icon-o"/></div> <div className="popular-lists"><span>Oslo</span>/Norway</div></li>
+                                                 <li><div className="places-icon"><GoDotFill className="icon-m"/></div> <div className="popular-lists"> <span>Muai</span>/Hawaii</div></li>
                                        </ul>
                              </div>
                     </div>
                     <div className="dash-log-out">
-                    <div className="places-icon"><TbLogout className="Log-out-icon"/></div><p>Logout</p>
+                    <div className="places-icon"><TbLogout className="Log-out-icon" onClick={()=> {window.location.href ='/'}}/></div><p onClick={()=> {window.location.href ='/'}}>Logout</p>
                     </div>
                    </div>       
 </div>
