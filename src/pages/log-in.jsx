@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
+// import { AppContext } from "./AppProvider";
 
 
 
 const Login = () =>{
 
-  const [email,setEmail] = useState()
+const [email,setEmail] = useState()
 const [password,setPassword] = useState()
+const [error,setError] = useState({})
 
   const log_in = async (e)=> {
     e.preventDefault();
@@ -28,28 +31,56 @@ if (!email.trim()) {
   setError(validateForm)
   if (Object.keys(validateForm).length === 0) {
     // alert("form is valid")
-    const data = {email,  password}
-    console.log(data)
+    const Data = {email,  password}
+    console.log(Data)
 
-    try {
-      axios.post('https://holiday-planner-4lnj.onrender.com/api/v1/auth/login',data).then(()=>{
+    // const {data, isLoading,isError} = useQuery({
+    //   queryKey: ["log"],
+    //   queryFn: async () => {
+    //     const res = await Axios.post('https://holiday-planner-4lnj.onrender.com/api/v1/auth/login',Data).then(()=>{
      
-       Navigate("/dashboard")
-     });
+    //           alert("continue")
+    //           window.location.href ='dashboard'
+    //          });
+       
+    //   },
+    
+    // });
+    // if (isError) {
+    //   return<h1>Sorry there is an Error</h1>
+    // }
+    // if (isLoading) {
+    //   return<h1>loading...</h1>
+    // }
+    
+    try {
+      const r = await axios.post('https://holiday-planner-4lnj.onrender.com/api/v1/auth/login',Data)
+
+      console.log(r.data)
+      localStorage.setItem("data",JSON.stringify((r.data)))
+   
+     
+      alert("continue")
+      window.location.href ='dashboard'
+      console.log(res)
+      localStorage.setItem(res)
+
+  
  
-   } catch(err){
-     if(err.response){
-console.log(err.response.data.massage);
-console.log(err.response.status);
-console.log(err.response.headers);
+   } 
+   
+   catch(err){
+     console.log(err);
+
+     if(err.response.status == 404){
+      alert("Incorrect email or password")
      }
-     else{
-           console.log(posts);
-       console.log(`Error:${err.message}`);
+     if(err.response.status == 401){
+      alert("Incorrect email or password")
      }
    }
   }
-  }
+ }
 
           return(
                     <div>
@@ -69,17 +100,19 @@ console.log(err.response.headers);
                                         value={email}
                                         onChange={(e)=> setEmail(e.target.value)}
                                         />
+                                         {error.fullName && <span className="error-validation">{error.fullName}</span>}
                               </div>
                               <div  className="login-form-p">
                                        <div> <label>Password</label> <span className="xxxxxx">Forgot Password?</span></div>
                                         <input 
-                                        type="text" 
+                                        type="password" 
                                         placeholder="Enter 6 character or more" 
                                         className="login-form-input"  
                                          required
                                          value={password}
                                          onChange={(e)=> setPassword(e.target.value)}
                                          />
+                                          {error.password && <span className="error-validation">{error.password}</span>}
                               </div>
                               <div  className="login-form-r">
                               <input type="radio" id="html" name="fav_language" value="HTML" />

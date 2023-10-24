@@ -42,11 +42,11 @@ const SignUp = async (e)=> {
   if (!location.trim()) {
     validateForm.location="location required"
     
-  }
-  if (!role.trim()) {
-    validateForm.role="role required"
+  } 
+  // if (!role.trim()) {
+  //   validateForm.role="role required"
     
-  }
+  // }
   if (!password.trim()) {
     validateForm.password="password required"
     
@@ -67,7 +67,8 @@ const SignUp = async (e)=> {
       try {
          axios.post('https://holiday-planner-4lnj.onrender.com/api/v1/auth/signup',data).then(()=>{
         
-          Navigate("/login")
+          alert("signup sus")
+          window.location.href ='login'
         });
     
       } catch(err){
@@ -77,7 +78,7 @@ const SignUp = async (e)=> {
   console.log(err.response.headers);
         }
         else{
-              console.log(posts);
+              console.log(data);
           console.log(`Error:${err.message}`);
         }
       }
@@ -148,7 +149,7 @@ const SignUp = async (e)=> {
                                          />
                                           {error.location && <span className="error-validation">{error.location}</span>}
                               </div>
-                              <div className="login-form-e">
+                              {/* <div className="login-form-e">
                                         <div><label>Role</label></div>
                                         <input 
                                         type="text" 
@@ -158,7 +159,7 @@ const SignUp = async (e)=> {
                                         onChange={(e) => setRole(e.target.value)}
                                         />
                                          {error.role && <span className="error-validation">{error.role}</span>}
-                              </div>
+                              </div> */}
                               <div>
                                 
                               <div className="login-form-p"><label>Upload profile image</label></div>

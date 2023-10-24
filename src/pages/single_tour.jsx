@@ -7,6 +7,7 @@ import {FaEnvelope,FaBook} from"react-icons/fa";
 import { useState,useEffect } from "react";
 
 import api from "../Api/api";
+import  Axios  from "axios";
 
 const Single_tour = () =>{
 
@@ -18,7 +19,7 @@ const Single_tour = () =>{
   useEffect(() => {
     const fetchapi = async () => {
       try {
-        const response = await api.get('https://holiday-planner-4lnj.onrender.com/api/v1/tour/getElement/',Tid);
+        const response = await Axios.get('https://holiday-planner-4lnj.onrender.com/api/v1/tour/getElement/',Tid);
         setPosts(response.data);  
       } catch(err){
         if(err.response){
@@ -33,6 +34,7 @@ const Single_tour = () =>{
       }
     }
     fetchapi();
+    
     console.log("wwe");
     console.log(posts);
   
@@ -53,7 +55,7 @@ const Single_tour = () =>{
                     <div className="contact">
                     <section className="main-banner inner-banner overlay back-image"  
                     style={{
-        backgroundImage: `url(${backdropImage})`,
+        backgroundImage: `url(${posts.backdropImage})`,
         backgroundSize: 'cover', // Adjust the background image size as needed
               
       }}>
@@ -62,7 +64,7 @@ const Single_tour = () =>{
                 <div className="row">
                     <div className="col-lg-12">
                         <div className="banner-content wow fadeup-animation" >
-                            <h1 className="h1-title">{Title}</h1>
+                            <h1 className="h1-title">{posts.Title}</h1>
                         </div>
                     </div>
                 </div>

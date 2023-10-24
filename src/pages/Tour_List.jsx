@@ -6,34 +6,57 @@ import api from "../Api/api";
 import {BsFillPersonFill} from "react-icons/bs";
 import {AiTwotonePhone} from "react-icons/ai";
 import {FaEnvelope,FaBook} from"react-icons/fa";
-
+import { useQuery } from "@tanstack/react-query";
+import Axios from "axios";
+// import AppProvider from "./AppProvider";
 
 const Tour_List = () =>{
 
-      const [posts,setPosts] = useState([]);
+  const {posts} = AppProvider;
 
 
-      useEffect(() => {
-        const fetchapi = async () => {
-          try {
-            const response = await api.get('https://holiday-planner-4lnj.onrender.com/api/v1/tour/');
-            setPosts(response.data);  
-          } catch(err){
-            if(err.response){
-      console.log(err.response.data.massage);
-      console.log(err.response.status);
-      console.log(err.response.headers);
-            }
-            else{
-                  console.log("wwe");
-                  console.log(posts);
-              console.log(`Error:${err.message}`);
-            }
-          }
-        }
-        fetchapi();
+  // const { data ,isLoading,isError} = useQuery({
+  //   queryKey: ["tours"],
+  //   queryFn: async () => {
+  //     const res = await Axios.get('https://holiday-planner-4lnj.onrender.com/api/v1/tour/')
+  //     console.log(res)
+  //     setPosts(res.data)
+  //     return res.data;
+  //   },
+  
+  // });
+  // if (isError) {
+  //   return<h1>Sorry there is an Error</h1>
+  // }
+  // if (isLoading) {
+  //   return<h1>loading...</h1>
+  // }
+
+
+      
+
+
+      // useEffect(() => {
+      //   const fetchapi = async () => {
+      //     try {
+      //       const response = await api.get('https://holiday-planner-4lnj.onrender.com/api/v1/tour/');
+      //       setPosts(response.data);  
+      //     } catch(err){
+      //       if(err.response){
+      // console.log(err.response.data.massage);
+      // console.log(err.response.status);
+      // console.log(err.response.headers);
+      //       }
+      //       else{
+      //             console.log("wwe");
+      //             console.log(posts);
+      //         console.log(`Error:${err.message}`);
+      //       }
+      //     }
+      //   }
+      //   fetchapi();
        
-      },[])
+      // },[])
 
 
           return(

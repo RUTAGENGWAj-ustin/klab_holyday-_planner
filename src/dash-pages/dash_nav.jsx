@@ -13,8 +13,12 @@ import { BrowserRouter, Routes, Route, Link ,NavLink} from "react-router-dom";
 import Dashboard from "../pages/Dashboard";
 import Tour_List from "../pages/Tour_List";
 import User from "./User";
+// import AppProvider from "../pages/AppProvider";
+import { useStateContext } from "../pages/AppProvider";
 
 const Dash_nav = () =>{
+
+      const {Loged_user = []} = useStateContext;
           return(
 <div>
 <div className="left-dash">
@@ -23,8 +27,8 @@ const Dash_nav = () =>{
                               <img src="/plae.jpg" alt="" />
                              </div>
                              <div className="profile-name">
-                                       <h1>Hossein</h1>
-                                       <p>Traveller</p>
+                                       <h1>{Loged_user?.email}</h1>
+                                       <p>{Loged_user?.role}</p>
                              </div>
                     </div>
                     <div className="dash-nav">
