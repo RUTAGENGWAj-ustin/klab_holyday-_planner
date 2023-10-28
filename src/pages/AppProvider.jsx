@@ -7,6 +7,8 @@ const AppContext = createContext();
 export const AppProvider = ({ children }) => {
   let url = "https://holiday-planner-4lnj.onrender.com";
 
+  //list of all tour
+
   const { data: tours, isLoading: ToursLoading } = useQuery({
     queryKey: ["tours"],
     queryFn: async () => {
@@ -15,45 +17,34 @@ export const AppProvider = ({ children }) => {
     },
   });
 
-  // const loggedUser = useQuery({
-  //   queryKey: ["user"],
+ // delete tour
+  // const [Deletetour,setDeletetour] = useState(null)
+
+  // const { data: Deletetours,} = useQuery({
+  //   queryKey: ["tours"],
   //   queryFn: async () => {
-  //     const res = await axios.get(
-  //       url +
-  //         `/api/v1/auth/users/getOne/${
-  //           JSON.parse(localStorage.getItem("isLogin")).user.email
-  //         }`,
-  //       {
-  //         headers: {
-  //           Authorization: `Bearer ${
-  //             localStorage.getItem("isLogin").access_token
-  //           }`,
-  //         },
-  //       }
+  //     const res = await axios.delete(url + `/api/v1/tour/delete/${Deletetour._id}`,
+  //    { headers: {
+  //       Authorization: `Bearer ${localStorage.getItem("token")}`
+  //     },
+  //   }
   //     );
   //     return res.data;
   //   },
-  //   onError: (error) => {
-  //     console.log(error.response.data.message);
-  //   },
-  //   onSuccess: (data) => {
-  //     console.log(data);
-  //   },
   // });
-
-  // console.log(loggedUser.data);
-//  console.log();
+  
+  
   let userData = JSON.parse(localStorage.getItem("data"));
  let token = userData.access_token;
- let email = userData.user.email;
-//  console.log(email);
+ let Email = userData.user.email;
+ console.log("token:",token);
   const loginMutation = useMutation({
     mutationFn: async (data) => {
       const res = await axios.get(url + `/api/v1/auth/users/getOne/`, data);
       return res.data;
     },
     onError: (error) => {
-      console.log(error.response.data.message);
+      console.log("errrrrrrrr",error.response.data.message);
     },
     onSuccess: (data) => {
       console.log(data);
@@ -62,27 +53,67 @@ export const AppProvider = ({ children }) => {
     },
   });
   console.log("hollo")
+// list of all users
 
-  const{data: Loged_user} = useQuery({
-    queryKey:["loged_user"],
-    queryFn: async () =>{
-      const res = await axios.get(url + `/api/v1/auth/users/getOne?fieldName=email&value=${email} `)
-      console.log(res.data)
-     
-    },
-    
+const { data: fetchUsersData,} = useQuery({
+  queryKey: ["users"],
+  queryFn: async () => {
+    const response = await axios.get(url + `/api/v1/auth/users`, {
       headers: {
         Authorization: "Bearer " + token,
       },
-    
-    // onSuccess: (data) =>{
-    //   console.log(data);
-    // }
-    
-  })
+    });
+    console.log("qqqqqqqqqqqqqqqqqqqqqqqqqqqq",response.data);
+    return response.data;
+  },
+  onSuccess: (data) => {
+    console.log("qqqqqqqqqqqqqqqqqqqqqqqqqqqq",response.data);
+  }
+});
 
+
+
+// loged user
+  const{data: Loged_user,isError,isLoading} = useQuery({
+    queryKey:["loged_user"],
+    queryFn: async () =>{
+      const res = await axios.get(url + `/api/v1/auth/users/getOne?fieldName=email&value=${Email} `,
+      {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      }
+      );
+      if (isError) {
+        return<h1>Sorry there is an Error</h1>
+      }
+      if (isLoading) {
+        return<h1>loading...</h1>
+      }
+      console.log("asdfghjk",res.data);
+      return res.data;    
+    },
+  })
+  console.log("iiiiiiiiiiiiiiiiiiiiiiiiii", Loged_user);
+
+  //updete user
+
+  const {data: Update_user} = useQuery({
+    queryKey:["update_user"],
+    queryFn: async () =>{
+      const response = await axios.put(url+ `/api/v1/auth/users/update/:${id}`,
+      {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      }
+      )
+    }
+  });
+
+  
   return (
-    <AppContext.Provider value={{ tours, loginMutation,Loged_user, }}>
+    <AppContext.Provider value={{ tours, loginMutation, Loged_user,fetchUsersData, }}>
       {children}
     </AppContext.Provider>
   );

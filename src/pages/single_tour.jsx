@@ -19,7 +19,7 @@ const Single_tour = () =>{
   useEffect(() => {
     const fetchapi = async () => {
       try {
-        const response = await Axios.get('https://holiday-planner-4lnj.onrender.com/api/v1/tour/getElement/',Tid);
+        const response = await Axios.get(`https://holiday-planner-4lnj.onrender.com/api/v1/tour/getElement?fieldName=Title&value=${Tid}`);
         setPosts(response.data);  
       } catch(err){
         if(err.response){
@@ -84,29 +84,23 @@ const Single_tour = () =>{
                          <div className="top-form">
                               <div className="top-form-left">
                                       <div className="in">
-                                        <span className="icon"><BsFillPersonFill/></span>
-                                        <input type="text" placeholder="Full Name *" required="" class="form-input"/>
+                                        {/* <span className="icon"><BsFillPersonFill/></span>
+                                        <input type="text" placeholder="Full Name *" required="" class="form-input"/> */}
+
+Rwanda, officially the Republic of Rwanda, is a landlocked country in the Great Rift Valley of Central Africa, where the African Great Lakes region and Southeast Africa converge. Located a few degrees south of the Equator, Rwanda is bordered by Uganda, Tanzania, Burundi, and the Democratic Republic of the Congo
                                       </div>  
                                       <div className="in">
-                                        <span className="icon"><AiTwotonePhone/></span>
-                                        <input type="text" placeholder="Phone *" required="" class="form-input"/>
+                                      Rwanda, officially the Republic of Rwanda, is a landlocked country in the Great Rift Valley of Central Africa, where the African Great Lakes region and Southeast Africa converge. Located a few degrees south of the Equator, Rwanda is bordered by Uganda, Tanzania, Burundi, and the Democratic Republic of the Congo
                                       </div>  
                               </div>
                               <div className="top-form-right">
-                              <div className="in">
-                                        <span className="icon"><FaEnvelope/></span>
-                                        <input type="text" placeholder="Email *" required="" class="form-input"/>
-                                      </div>  
-                                      <div className="in">
-                                        <span className="icon"><FaBook/></span>
-                                        <input type="text" placeholder="Services *" required="" class="form-input"/>
-                                      </div>  
+                              Rwanda, officially the Republic of Rwanda, is a landlocked country in the Great Rift Valley of Central Africa, where the African Great Lakes region and Southeast Africa converge. Located a few degrees south of the Equator, Rwanda is bordered by Uganda, Tanzania, Burundi, and the Democratic Republic of the Congo 
                               </div>
                               
                          </div>
                          <div className="bottom-form">
-                              <textarea name="massege" id="" cols="30" rows="10" placeholder="Massage"></textarea>
-                              <button className="form-contact-botton"><span>submit</span></button>
+                         Rwanda, officially the Republic of Rwanda, is a landlocked country in the Great Rift Valley of Central Africa, where the African Great Lakes region and Southeast Africa converge. Located a few degrees south of the Equator, Rwanda is bordered by Uganda, Tanzania, Burundi, and the Democratic Republic of the Congo
+                         Rwanda, officially the Republic of Rwanda, is a landlocked country in the Great Rift Valley of Central Africa, where the African Great Lakes region and Southeast Africa converge. Located a few degrees south of the Equator, Rwanda is bordered by Uganda, Tanzania, Burundi, and the Democratic Republic of the Congo
                          </div>
                       </form>
                       </div>

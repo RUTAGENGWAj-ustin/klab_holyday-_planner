@@ -17,6 +17,7 @@ import "./styles/home.css";
 import "./styles/Footer.css";
 import "./styles/Header.css";
 import "./styles/contact.css";
+import "./styles/Create_tour.css";
 import "./styles/menu.css";
 import "./styles/login.css";
 import "./styles/tourlist.css";

@@ -12,51 +12,51 @@ import Axios from "axios";
 
 const Tour_List = () =>{
 
-  const {posts} = AppProvider;
+  // const {posts} = AppProvider;
+ const [posts,setPosts] = useState([])
 
-
-  // const { data ,isLoading,isError} = useQuery({
-  //   queryKey: ["tours"],
-  //   queryFn: async () => {
-  //     const res = await Axios.get('https://holiday-planner-4lnj.onrender.com/api/v1/tour/')
-  //     console.log(res)
-  //     setPosts(res.data)
-  //     return res.data;
-  //   },
+  // // const { data ,isLoading,isError} = useQuery({
+  // //   queryKey: ["tours"],
+  // //   queryFn: async () => {
+  // //     const res = await Axios.get('https://holiday-planner-4lnj.onrender.com/api/v1/tour/')
+  // //     console.log(res)
+  // //     setPosts(res.data)
+  // //     return res.data;
+  // //   },
   
-  // });
-  // if (isError) {
-  //   return<h1>Sorry there is an Error</h1>
-  // }
-  // if (isLoading) {
-  //   return<h1>loading...</h1>
-  // }
+  // // });
+  // // if (isError) {
+  // //   return<h1>Sorry there is an Error</h1>
+  // // }
+  // // if (isLoading) {
+  // //   return<h1>loading...</h1>
+  // // }
 
 
       
 
 
-      // useEffect(() => {
-      //   const fetchapi = async () => {
-      //     try {
-      //       const response = await api.get('https://holiday-planner-4lnj.onrender.com/api/v1/tour/');
-      //       setPosts(response.data);  
-      //     } catch(err){
-      //       if(err.response){
-      // console.log(err.response.data.massage);
-      // console.log(err.response.status);
-      // console.log(err.response.headers);
-      //       }
-      //       else{
-      //             console.log("wwe");
-      //             console.log(posts);
-      //         console.log(`Error:${err.message}`);
-      //       }
-      //     }
-      //   }
-      //   fetchapi();
+      useEffect(() => {
+        const fetchapi = async () => {
+          try {
+            const response = await api.get('https://holiday-planner-4lnj.onrender.com/api/v1/tour/');
+            setPosts(response.data);  
+          } catch(err){
+            if(err.response){
+      console.log(err.response.data.massage);
+      console.log(err.response.status);
+      console.log(err.response.headers);
+            }
+            else{
+                  console.log("wwe");
+                  console.log(posts);
+              console.log(`Error:${err.message}`);
+            }
+          }
+        }
+        fetchapi();
        
-      // },[])
+      },[])
 
 
           return(

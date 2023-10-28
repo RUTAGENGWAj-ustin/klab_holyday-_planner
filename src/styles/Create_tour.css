@@ -1,0 +1,15 @@
+.create_tour_dash{
+
+ background-color: rgba(63, 63, 63, 0.4);
+top: 0;
+left: 0;
+right: 0;
+bottom: auto;
+ position: absolute;
+ z-index: 3;
+
+}
+.create_tour_dash .login-form-container{
+          background-color: #ffffff;
+          /* position: fixed; */
+}

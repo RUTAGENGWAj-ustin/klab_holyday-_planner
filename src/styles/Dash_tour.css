@@ -28,7 +28,7 @@
           display: flex;
           gap: 2rem;
 }
-.book a{
+.book button{
           text-decoration: none;
 width: 140px;
 height: 50px;
@@ -50,4 +50,36 @@ cursor: pointer;
 overflow: hidden;
 transition: 0.8s cubic-bezier(0.22, 0.78, 0.45, 1.02);
 z-index: 2;
+}
+.dash_tour_headers button{
+  text-decoration: none;
+width: 140px;
+height: 50px;
+background: green;
+border: none;
+outline: none;
+border-radius: 5px;
+display: inline-flex;
+justify-content: center;
+align-items: center;
+font-size: 16px;
+line-height: 26px;
+padding: 0;
+color: #ffffff;
+font-weight: bold;
+text-transform: uppercase;
+position: relative;
+cursor: pointer;
+overflow: hidden;
+transition: 0.8s cubic-bezier(0.22, 0.78, 0.45, 1.02);
+z-index: 4;
+}
+.dash_tour_headers{
+   display: flex;
+   gap: 60%;
+   margin-top: 30px;
+}
+.table_tour_img{
+width: 100px;
+height: 100px;
 }

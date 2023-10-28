@@ -3,7 +3,7 @@ import React from "react";
 
 const Edit_user = () =>{
           return(
-<div>
+<div className="create_tour_dash">
 <div className="login-form-container">
                             <form action="" method="get">
                               <div className="login-form-title" >

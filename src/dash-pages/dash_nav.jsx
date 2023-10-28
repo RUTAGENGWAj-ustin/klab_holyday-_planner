@@ -5,7 +5,7 @@ import {GiCommercialAirplane} from "react-icons/gi";
 import {MdOutlineUpcoming} from "react-icons/md";
 import {LiaUmbrellaBeachSolid} from "react-icons/lia";
 import {LuCalendarDays} from "react-icons/lu";
-import {BsFillChatRightDotsFill,BsSun,BsMoonStars} from "react-icons/bs";
+import {BsFillChatRightDotsFill,BsSun,BsMoonStars,BsFillPersonFill} from "react-icons/bs";
 import {GoDotFill} from "react-icons/go";
 import {TbLogout} from "react-icons/tb";
 import {AiOutlineSetting} from "react-icons/ai";
@@ -18,7 +18,8 @@ import { useStateContext } from "../pages/AppProvider";
 
 const Dash_nav = () =>{
 
-      const {Loged_user = []} = useStateContext;
+      const {Loged_user} = useStateContext();
+      console.log("====================", Loged_user);
           return(
 <div>
 <div className="left-dash">
@@ -35,7 +36,7 @@ const Dash_nav = () =>{
                                  <div className="inner-dash-nav">
                                        <ul>
                                                  <li><NavLink className="NavLink" to="Dashboard"><div className="dash-nav-icon"><ImWindows className="dash-nav-icon"/></div><p>Dashboard</p></NavLink></li>
-                                                 <li><NavLink className="NavLink" to="User"><div className="dash-nav-icon"><BiMap className="dash-nav-icon"/></div><p>User</p></NavLink></li>
+                                                 <li><NavLink className="NavLink" to="User"><div className="dash-nav-icon"><BsFillPersonFill className="dash-nav-icon"/></div><p>User</p></NavLink></li>
                                                  <li><NavLink className="NavLink" to="Dash_tour"><div className="dash-nav-icon"><GiCommercialAirplane className="dash-nav-icon"/></div><p>Tours</p></NavLink></li>
                                                  <li><div className="dash-nav-icon"><MdOutlineUpcoming className="dash-nav-icon"/></div><p>Upcoming</p></li>
                                                  <li><div className="dash-nav-icon"><LiaUmbrellaBeachSolid className="dash-nav-icon"/></div><p>Camps</p></li>

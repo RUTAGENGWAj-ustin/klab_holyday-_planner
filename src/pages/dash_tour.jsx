@@ -3,10 +3,19 @@ import Tours from "./list-of-all-tour-arr";
 import Axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
+import Notiflix from 'notiflix';
+import Create_tour from "./Create_tour";
+import Edit_tour from "./Edit_tour";
+
+
 
 const Dash_tour = () =>{
 
-
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const [tourToDelete, setTourToDelete] = useState(null);
+  const [edittour, seteditTour] = useState(null);
+  const [EditTour,setEditTour] = useState(false);
+  const [createTour,setCreateTour] = useState(false)
 
     const [posts,setPosts] = useState([]);
 
@@ -15,9 +24,13 @@ const Dash_tour = () =>{
       queryKey: ["tours"],
       queryFn: async () => {
         const res = await Axios.get('https://holiday-planner-4lnj.onrender.com/api/v1/tour/')
+         localStorage.setItem("tour",JSON.stringify((res.data)))
         console.log(res.data)
         setPosts(res.data)
         return res.data;
+
+        
+   
       },
     
     });
@@ -28,60 +41,101 @@ const Dash_tour = () =>{
       return<h1>loading...</h1>
     }
   
-    // destination
-    // backdropImage
-    // Title
-    // Description
-    // Duration
-    // Group size
-    // Price
-    // Discount: percentage
-    // Tour type
-    // Departure
-    // Seats
-    // fromMonth
-    // toMonth
-    // departureTime 
+   
+
     
+    //  const { tours, deleteTour } = usestecontext();
+   
+      const handleConfirmDelete = async() => {
+        try {
+     Notiflix.Confirm.show(
+      'Confirm delete tour',
+      'Do you agree with me?',
+      'Yes',
+      'No',
+      async() => {
+        const res =  await Axios.delete(`https://holiday-planner-4lnj.onrender.com/api/v1/tour/delete/${tourToDelete._id}`,{
+          headers:{
+            Authorization:`Bearer ${localStorage.getItem("token")}`
+          }
+        })
+        window.location.reload()
+      },
+      () => {
+      alert('If you say so...');
+      },
+      {
+      },
+      );
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      const handleDeleteClick = (tours) => {
+        setTourToDelete(tours);
+        handleConfirmDelete()
+        // setShowDeleteConfirm(true);
+      };
+      const handleCancelDelete = () => {
+        setShowDeleteConfirm(false);
+      };
+      const handleCreateClick = () => {
+        setCreateTour((previsEditMadel) => !previsEditMadel);
+      }
+      const handleEditClick = (item) => {
+       seteditTour(item)
+       console.log(item)
+        setEditTour((previsEditMadel) => !previsEditMadel);
+      }
 return(
     
           <div>
-            
+            {createTour && <Create_tour handleEditClick = {handleCreateClick}/>}
+            {EditTour && <Edit_tour handleEditClick = {handleEditClick}  item = {edittour}/>}
+            <div className="dash_tour_headers">
+            <h1 className="user-title">List of tour</h1>
+            <button onClick={handleCreateClick}>Create tour</button>
+            </div>
+            <div className="tour-card dash">
+            <table>
+            <thead>
+              <tr key="">
+                <th>backdropImage</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>destination</th>
+                <th>Duration</th>
+                <th>GroupSize</th>
+                <th>Price</th>
+                <th>Edit</th>
+                <th>Delete</th>
+              </tr>
+              </thead>
+              <tbody> 
           {posts.map((item, index) => (
-                    <div className="tour-card dash">
-                              <div className="card-img-img">
-                                        <img src={item.backdropImage} alt="" />
-                              </div>
-                              <div className="card-name-name">
-                                        <h1>{item.Title}</h1>
-                              </div>
-                              <div className="all-description-dash">
-                                    <div className="description-a"><p>{item.Description}</p></div>
-                                    <div className="description-b"><p>{item.destination}</p></div>
-                                    <div className="description-c">
-                                        <div className="duration">
-                                                  <h2>Duration</h2>
-                                                  <p>{item.Duration}</p>
-                                        </div>
-                                        <div className="group-size">
-                                        <h2>Group Size</h2>
-                                        <p>{item.GroupSize}</p>
-                                        </div>
-                                    </div>
-                                    <div  className="price-and-book">
-                                           <div className="price">     
-                                        <h1>{item.Price}</h1>
-                                        </div>
-                                        <div className="book">
-                                        <a href="http://">Edit</a>
-                                        </div>
-                                        <div className="book">
-                                        <a href="http://">Delete</a>
-                                        </div>
-                                    </div>
-                              </div>
-                    </div>
-                    ))}   
+             <tr key={item._id}>
+              <td><img src={item.backdropImage} alt=""  className="table_tour_img"/></td>
+              <td>{item.Title}</td>
+              <td>{item.Description}</td>
+          <td>{item.destination}</td>
+          <td>{item.Duration}</td>
+          <td>{item.GroupSize}</td>
+          <td>{item.Price}</td>
+          <td><button onClick={() => handleEditClick(item)}>Edit</button></td>
+           <td><button onClick={() => handleDeleteClick(item)}>Delete</button></td>
+           </tr>
+          
+                    ))} 
+                        {showDeleteConfirm && (
+        <div className="popup">
+          <p>Are you sure you want to delete {tourToDelete._id}?</p>
+          <button onClick={handleConfirmDelete}>OK</button>
+          <button onClick={handleCancelDelete}>Cancel</button>
+        </div>
+      )} 
+      </tbody>
+      </table>
+      </div> 
                     </div>
 );
 }

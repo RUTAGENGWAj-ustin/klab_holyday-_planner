@@ -3,59 +3,7 @@
           gap: 2rem;
           padding-top: 20px;
 }
-/* table{
-          border: 1px solid rgb(169, 143, 143);        
-}
 
-.listofuser{
-          border: 1px solid rgb(169, 143, 143);
-          display: flex;
-          gap: 6rem;
-          border: none;
-          margin: 5px 0;
-          border-radius: 5px;
-          box-shadow: 0 0  10px black;
-
-}
-.listofuser img{
-          border-radius: 5px;
-          width: 100px;
-          height: 100px;
-          border-right: 1px solid rgba(0,0,0,0.3);
-          
-          
-}
-.listofuser .names{
-           border-right: 1px solid rgba(0,0,0,0.3);
-          width: 7%;
-          padding: 5px;
-}
-.listofuser .names p{
-         margin-left: 1px;
-          margin-top: 20px;
-          align-items: start;
-
-}
-.listofuser .Email{
-          width: 200px;
-           border-right: 1px solid rgba(0,0,0,0.3);
-}
-.listofuser .Email p{
-          width: 200px;
-          margin-top: 20px;
-}
-.listofuser .pass{
-           border-right: 1px solid rgba(0,0,0,0.3);
-          width: 15%;
-}
-.listofuser .pass p{
-          width:200px;
-          margin-top: 20px;
-}
-.listofuser .Edit{
-          margin: 0;
-          padding: 0;
-}*/
 
 .user-title{
           font-size: 30px;
@@ -108,4 +56,32 @@ table {
         /* Style table rows alternatively for better readability */
         tr:nth-child(even) {
           background-color: #f5f5f5;
+        }
+
+        @media screen and (max-width: 390px) {
+          .user-title {
+            font-size: 24px; /* Decrease font size for smaller screens */
+            max-width: 100%; /* Allow title to occupy the full width */
+            margin-left: 0; /* Remove left margin */
+          }
+        
+          table td button {
+            width: 100%; /* Make buttons occupy full width */
+          }
+        }
+        @media screen and (max-width: 390px) {
+          /* Adjust the table's font size, padding, and cell borders for smaller screens */
+          table {
+            font-size: 14px; /* Decrease the font size for better readability */
+          }
+        
+          th, td {
+            padding: 6px; /* Reduce cell padding for compactness */
+            border: none; /* Remove cell borders to save space */
+          }
+        
+          /* Hide table headers on small screens to save space */
+          th {
+            display: none;
+          }
         }
