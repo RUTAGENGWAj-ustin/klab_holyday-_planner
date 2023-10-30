@@ -8,7 +8,7 @@ import {LuCalendarDays} from "react-icons/lu";
 import {BsFillChatRightDotsFill,BsSun,BsMoonStars,BsFillPersonFill} from "react-icons/bs";
 import {GoDotFill} from "react-icons/go";
 import {TbLogout} from "react-icons/tb";
-import {AiOutlineSetting} from "react-icons/ai";
+import {AiOutlineSetting,AiOutlineMail} from "react-icons/ai";
 import { BrowserRouter, Routes, Route, Link ,NavLink} from "react-router-dom";
 import Dashboard from "../pages/Dashboard";
 import Tour_List from "../pages/Tour_List";
@@ -38,6 +38,7 @@ const Dash_nav = () =>{
                                                  <li><NavLink className="NavLink" to="Dashboard"><div className="dash-nav-icon"><ImWindows className="dash-nav-icon"/></div><p>Dashboard</p></NavLink></li>
                                                  <li><NavLink className="NavLink" to="User"><div className="dash-nav-icon"><BsFillPersonFill className="dash-nav-icon"/></div><p>User</p></NavLink></li>
                                                  <li><NavLink className="NavLink" to="Dash_tour"><div className="dash-nav-icon"><GiCommercialAirplane className="dash-nav-icon"/></div><p>Tours</p></NavLink></li>
+                                                 <li><NavLink className="NavLink" to="Dash_massage"><div className="dash-nav-icon"><AiOutlineMail className="dash-nav-icon"/></div><p>Massages</p></NavLink></li>
                                                  <li><div className="dash-nav-icon"><MdOutlineUpcoming className="dash-nav-icon"/></div><p>Upcoming</p></li>
                                                  <li><div className="dash-nav-icon"><LiaUmbrellaBeachSolid className="dash-nav-icon"/></div><p>Camps</p></li>
                                                  <li><div className="dash-nav-icon"><LuCalendarDays className="dash-nav-icon"/></div><p>Calender</p></li>

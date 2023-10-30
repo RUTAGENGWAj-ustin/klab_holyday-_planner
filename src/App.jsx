@@ -12,6 +12,7 @@ import Menu from "./components/common/menu";
 import Login from "./pages/log-in";
 import Register from "./pages/register";
 import Dashboard from "./pages/Dashboard";
+import Dash_Massages from "./pages/Dash_Massages";
 import "./styles/Dash_tour.css";
 import "./styles/home.css";
 import "./styles/Footer.css";
@@ -77,6 +78,7 @@ const App = () => {
             <Route path="Dashboard/Dash_nav" element={<Dash_nav/>} />
             <Route path="user" element={<User/>} />
             <Route path="Dash_tour" element={<Dash_tour/>} />
+            <Route path="Dash_massage" element={<Dash_Massages/>}/>
             
             <Route
               path="*"

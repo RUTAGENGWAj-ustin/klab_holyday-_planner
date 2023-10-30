@@ -11,7 +11,7 @@ import Notiflix from "notiflix";
 
 const User = () =>{
    const [UserToDelete, setUserToDelete] = useState(null);
-
+   const [updateUser,setUpdateUser] = useState(null)
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
    const {fetchUsersData} =useStateContext()
    
@@ -40,9 +40,7 @@ const User = () =>{
       
        
 
-         const handleEditClick = () => {
-          setEditUser((previsEditMadel) => !previsEditMadel);
-         };
+        
         //  const [userarry,setUserarry] = useState([]);
 
         const handleConfirmDelete = async() => {
@@ -53,7 +51,7 @@ const User = () =>{
         'Yes',
         'No',
         async() => {
-          const res =  await Axios.delete(`https://holiday-planner-4lnj.onrender.com/api/v1/auth/users/delete/${UserToDelete.email}`,{
+          const res =  await Axios.delete(`https://holiday-planner-4lnj.onrender.com/api/v1/auth/users/delete/${UserToDelete._id}`,{
             headers:{
               Authorization:`Bearer ${localStorage.getItem("token")}`
             }
@@ -70,14 +68,20 @@ const User = () =>{
             console.log(error);
           }
         };
-        const handleDeleteClick = (tours) => {
-          setUserToDelete(tours);
+        const handleDeleteClick = (item) => {
+          setUserToDelete(item);
           handleConfirmDelete();
           // setShowDeleteConfirm(true);
         };
         const handleCancelDelete = () => {
           setShowDeleteConfirm(false);
         };
+
+
+        const handleEditClick = (item) => {
+          setUpdateUser(item)
+          setEditUser((previsEditMadel) => !previsEditMadel);
+         };
      
 
 
@@ -85,7 +89,7 @@ const User = () =>{
 <div>
           <div className="user-container">
             <h1 className="user-title">Users</h1>
-            {editUser && <Edit_user handleEditClick = {handleEditClick}/>}
+            {editUser && <Edit_user handleEditClick = {handleEditClick} item = {updateUser}/>}
           <table>
             <thead>
               <tr key="">
@@ -105,7 +109,7 @@ const User = () =>{
          <tbody>   
 {fetchUsersData?.map((item, index) => ( 
         
-          <tr key="">
+          <tr key={item._id}>
           <td><img src="/logo.png" alt="" /></td>
           <td>{item.fullName}</td>
           <td>{item.email}</td>
@@ -113,8 +117,8 @@ const User = () =>{
           <td>{item.phone}</td>
           <td>{item.location}</td>
           <td>{item.role}</td>
-          <td><button onClick={handleEditClick}><p>Edit</p></button></td>
-           <td><button onClick={handleDeleteClick}><p>Delete</p></button></td>
+          <td><button onClick={() => handleEditClick(item)}><p>Edit</p></button></td>
+           <td><button onClick={() => handleDeleteClick(item)}><p>Delete</p></button></td>
            </tr>
           
 

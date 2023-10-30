@@ -2,9 +2,16 @@ import React from "react";
 import {BsFillPersonFill} from "react-icons/bs";
 import {AiTwotonePhone} from "react-icons/ai";
 import {FaEnvelope,FaBook} from"react-icons/fa";
+import { useState } from "react";
 
 
 const Contact = () =>{
+    const [FullName,setFillname] = useState()
+    const [Phone,setPhane] = useState()
+    const [Email,setEmail] = useState()
+    const [massage,setMassage] = useState()
+
+    let sendEmail = {FullName,Phone,Email,massage}
           return(
                     <>
                     <div className="contact">
@@ -35,21 +42,47 @@ const Contact = () =>{
                               <div className="top-form-left">
                                       <div className="in">
                                         <span className="icon"><BsFillPersonFill/></span>
-                                        <input type="text" placeholder="Full Name *" required="" class="form-input"/>
+                                        <input 
+                                        type="text" 
+                                        placeholder="Full Name *" 
+                                        required="" 
+                                        class="form-input"
+                                        value={FullName}
+                                        onChange={(e) => setFillname(e.target.value)}
+                                        />
                                       </div>  
                                       <div className="in">
                                         <span className="icon"><AiTwotonePhone/></span>
-                                        <input type="text" placeholder="Phone *" required="" class="form-input"/>
+                                        <input type="text" 
+                                        placeholder="Phone *" 
+                                        required="" 
+                                        class="form-input"
+                                        value={Phone}
+                                        onChange={(e) => setPhane(e.target.value)}
+                                        />
                                       </div>  
                               </div>
                               <div className="top-form-right">
                               <div className="in">
                                         <span className="icon"><FaEnvelope/></span>
-                                        <input type="text" placeholder="Email *" required="" class="form-input"/>
+                                        <input type="text" 
+                                        placeholder="Email *" 
+                                        required="" 
+                                        class="form-input"
+                                        value={Email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        />
                                       </div>  
                                       <div className="in">
                                         <span className="icon"><FaBook/></span>
-                                        <input type="text" placeholder="Services *" required="" class="form-input"/>
+                                        <input 
+                                        type="text" 
+                                        placeholder="Services *" 
+                                        required="" 
+                                        class="form-input"
+                                        value={massage}
+                                        onChange={(e) => setMassage(e.target.value)}
+                                        />
                                       </div>  
                               </div>
                               

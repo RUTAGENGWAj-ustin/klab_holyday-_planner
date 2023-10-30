@@ -110,10 +110,26 @@ const { data: fetchUsersData,} = useQuery({
       )
     }
   });
+/*list of all massage contact*/
+  const {data: Message} = useQuery({
+    queryKey:["Message"],
+    queryFn: async () =>{
+      const response = await axios.get(url+ `/api/v1/contact`,
+      {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      }
+      )
+      console.log("contact",response.data);
+      return (response.data);
+     
+    }
+  });
 
   
   return (
-    <AppContext.Provider value={{ tours, loginMutation, Loged_user,fetchUsersData, }}>
+    <AppContext.Provider value={{ tours, loginMutation, Loged_user,fetchUsersData,Message }}>
       {children}
     </AppContext.Provider>
   );

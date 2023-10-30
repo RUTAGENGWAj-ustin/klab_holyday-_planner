@@ -1,7 +1,7 @@
 .tour-card.dash{
           margin-top: 20px;
           display: flex;
-          border: 1px solid black;
+          border: none;
           gap: 20px;
 }
 .all-description-dash{
@@ -55,7 +55,7 @@ z-index: 2;
   text-decoration: none;
 width: 140px;
 height: 50px;
-background: green;
+background: #C29D59;
 border: none;
 outline: none;
 border-radius: 5px;

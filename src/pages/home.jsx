@@ -132,7 +132,7 @@ const Home = () => {
                             </form>
                         </div>
                         </div>
-<section className="section">
+<section className="section about">
 <div class="logo-icon">
             <img src="logo-icon.svg" alt="logo-icon"/>
         </div>

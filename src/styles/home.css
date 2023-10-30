@@ -37,6 +37,10 @@
           top: 0px;
           z-index: -1;
 }
+.section.about{
+    padding: 0px 200px;
+
+}
 
 .txd .content{
           width: 800px;
@@ -539,6 +543,10 @@ img {
 
 @media screen and (max-width:390px) {
 
+    .section.about{
+        padding: 0px 0px;
+    
+    }
 
     .slaides{
         width: auto;

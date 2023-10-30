@@ -34,7 +34,7 @@ function Edit_tour({item}) {
                             Discount:Discount,
                             Duration:Duration,  
                     };
-                    axios.put(`https://holiday-planner-4lnj.onrender.com/api/v1/tour/update/${title}`,
+                    axios.put(`https://holiday-planner-4lnj.onrender.com/api/v1/tour/update/${item._id}`,
                     update).then((response) => {
                               alert("sckdnegrjhweksl")
                     })
