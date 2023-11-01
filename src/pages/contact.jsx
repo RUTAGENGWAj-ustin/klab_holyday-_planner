@@ -3,6 +3,7 @@ import {BsFillPersonFill} from "react-icons/bs";
 import {AiTwotonePhone} from "react-icons/ai";
 import {FaEnvelope,FaBook} from"react-icons/fa";
 import { useState } from "react";
+import axios from "axios";
 
 
 const Contact = () =>{
@@ -11,7 +12,36 @@ const Contact = () =>{
     const [Email,setEmail] = useState()
     const [massage,setMassage] = useState()
 
-    let sendEmail = {FullName,Phone,Email,massage}
+    const onSend = async (e)=> {
+        e.preventDefault();
+    let sendEmail = {
+        name:FullName,
+        phone:Phone,
+        email:Email,
+        message:massage,
+    }
+    console.log(sendEmail)
+
+    try {
+       const response = await axios.post('https://holiday-planner-4lnj.onrender.com/api/v1/contact/submit',sendEmail).then(()=>{
+       
+         alert("message sent")
+       
+       });
+       console.log("weeeeeeeeeeeeeeeeeee:",response.data);
+   
+     } catch(err){
+       if(err.response){
+ console.log(err.response.data.massage);
+ console.log(err.response.status);
+ console.log(err.response.headers);
+       }
+       else{
+             console.log(data);
+         console.log(`Error:${err.message}`);
+       }
+    }
+     }
           return(
                     <>
                     <div className="contact">
@@ -37,7 +67,7 @@ const Contact = () =>{
           <div className="small-contact">
                <div className="left-side">
                     <div className="form">
-                      <form action="">
+                      <form action="" method="POST" onSubmit={onSend}>
                          <div className="top-form">
                               <div className="top-form-left">
                                       <div className="in">
@@ -46,7 +76,7 @@ const Contact = () =>{
                                         type="text" 
                                         placeholder="Full Name *" 
                                         required="" 
-                                        class="form-input"
+                                        className="form-input"
                                         value={FullName}
                                         onChange={(e) => setFillname(e.target.value)}
                                         />
@@ -56,7 +86,7 @@ const Contact = () =>{
                                         <input type="text" 
                                         placeholder="Phone *" 
                                         required="" 
-                                        class="form-input"
+                                        className="form-input"
                                         value={Phone}
                                         onChange={(e) => setPhane(e.target.value)}
                                         />
@@ -68,7 +98,7 @@ const Contact = () =>{
                                         <input type="text" 
                                         placeholder="Email *" 
                                         required="" 
-                                        class="form-input"
+                                        className="form-input"
                                         value={Email}
                                         onChange={(e) => setEmail(e.target.value)}
                                         />
@@ -79,7 +109,7 @@ const Contact = () =>{
                                         type="text" 
                                         placeholder="Services *" 
                                         required="" 
-                                        class="form-input"
+                                        className="form-input"
                                         value={massage}
                                         onChange={(e) => setMassage(e.target.value)}
                                         />
@@ -97,9 +127,9 @@ const Contact = () =>{
                <div className="right-side">
                     <div className="right-side-top">
                <div className="line-title">
-                                <h4 class="h4-title">Why Book With Us?</h4>
+                                <h4 className="h4-title">Why Book With Us?</h4>
                             </div>
-                            <ul class="book-with-list">
+                            <ul className="book-with-list">
                                 <li>Best Price Guarantee</li>
                                 <li>Customer care available 24/7</li>
                                 <li>Free Travel Insureance</li>
@@ -108,19 +138,19 @@ const Contact = () =>{
                </div>
                <div className="right-side-bottom">
                
-                            <div class="line-title">
-                                <h4 class="h4-title">Get a Question?</h4>
+                            <div className="line-title">
+                                <h4 className="h4-title">Get a Question?</h4>
                             </div>
                             <p>Do not hesitage to give us a call. We are an expert team and we are happy to talk to you.</p>
-                            <ul class="gaq-list-item">
+                            <ul className="gaq-list-item">
                                 <li>
                                     <a href="mailto:holidayplanners@gmail.com" title="holidayplanners@gmail.com">
-                                        <i class="fas fa-envelope" aria-hidden="true"></i> holidayplanners@gmail.com
+                                        <i className="fas fa-envelope" aria-hidden="true"></i> holidayplanners@gmail.com
                                     </a>
                                 </li>
                                 <li>
                                     <a href="tel:1234567890" title="+123 456 7890">
-                                        <i class="fas fa-phone-alt" aria-hidden="true"></i> +123 456 7890
+                                        <i className="fas fa-phone-alt" aria-hidden="true"></i> +123 456 7890
                                     </a>
                                 </li>
                             </ul>

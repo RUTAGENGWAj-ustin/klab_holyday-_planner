@@ -62,36 +62,37 @@ const Home = () => {
                     <div>
                           <section className="slaides">
                              <div className="container">
-                             <button class="slide-arrow prev-arrow"><span>Prev</span></button>
+                             <button className="slide-arrow prev-arrow">
+                                <span>Prev</span></button>
 
                              <div className="txd">
                               <img src="houses.jpg" alt=""  className="image_scrool"/>
                               <div className="content">
                               
-                                    <h1 class="h1-title">Life is Short and </h1>
-                                    <h1 class="h1-title"><span>The World is Wide.</span></h1>
+                                    <h1 className="h1-title">Life is Short and </h1>
+                                    <h1 className="h1-title"><span>The World is Wide.</span></h1>
                                     <p>A journey of a 1000 miles starts with a single step. Import the full demo content with 1 click and create a head-turning website for your travel agency.</p>
                                 
                               </div>
                              </div>
-                             <button class="slide-arrow prev-Next"><span>Next</span></button>
+                             <button className="slide-arrow prev-Next"><span>Next</span></button>
                              </div>
                               
                               
                               </section >
                               <div className="bannerform-1">
-                              <div class="banner-form">
+                              <div className="banner-form">
                             <form className="formxxx">
                                 <div className="input-col wow fadeup-animation" >
                                     <span className="form-control-span where-wrap">
-                                        <span className="icon"><i class="fas fa-map-marker-alt" ></i></span>
-                                    <input type="text" class="form-input" placeholder="Where To?"/>
+                                        <span className="icon"><i className="fas fa-map-marker-alt" ></i></span>
+                                    <input type="text" className="form-input" placeholder="Where To?"/>
                                     </span>
                                 </div>
                                 <div className="input-col wow fadeup-animation" >
                                     <span className="form-control-span when-wrap">
                                         <span className="icon"></span>
-                                    <select class="form-input">
+                                    <select className="form-input">
                                             <option>When?</option>
                                             <option>January</option>
                                             <option>February</option>
@@ -133,7 +134,7 @@ const Home = () => {
                         </div>
                         </div>
 <section className="section about">
-<div class="logo-icon">
+<div className="logo-icon">
             <img src="logo-icon.svg" alt="logo-icon"/>
         </div>
                               <div className="row">
@@ -168,7 +169,7 @@ const Home = () => {
                                                 <div className="min_container">
                                                     <div className="line-title"><h4 class="h4-title">Amazing Destination</h4></div>
                                                     
-                                                    <h2 class="h2-title">Choose The <span>Destination</span> Just Right For <span>Your Vacation</span></h2>
+                                                    <h2 className="h2-title">Choose The <span>Destination</span> Just Right For <span>Your Vacation</span></h2>
                                                     
                                                 </div>
     <div className="fadeup-animation " >
@@ -231,9 +232,9 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-12">
-                        <div class="destination-see-more">
-                            <a href="destination.html" title="See More" class="sec-btn"><span>View All</span></a>
+                <div className="col-lg-12">
+                        <div className="destination-see-more">
+                            <a href="destination.html" title="See More" className="sec-btn"><span>View All</span></a>
                         </div>
                     </div>
                 </div>
@@ -241,9 +242,9 @@ const Home = () => {
      <section className="section">
                                     <div className="containero">
                                                 <div className="min_container">
-                                                    <div className="line-title"><h4 class="h4-title">Amazing Tours</h4></div>
+                                                    <div className="line-title"><h4 className="h4-title">Amazing Tours</h4></div>
                                                     
-                                                    <h2 class="h2-title">Trending,  <span> Best Selling Tours</span> And Fun  <span>Destinations</span></h2>
+                                                    <h2 className="h2-title">Trending,  <span> Best Selling Tours</span> And Fun  <span>Destinations</span></h2>
                                                     
                                                 </div>
                                                 <div className="list-of-all-tour-card">
@@ -303,7 +304,7 @@ const Home = () => {
                     <div className="testimonial-right-side wow left-animation" >
                         <div className="testimonial-slider slick-initialized slick-slider slick-dotted">
                             <div className="slick-list draggable">
-                                <div class="slick-track" >
+                                <div className="slick-track" >
                         <div className="testimonial-slide slick-slide slick-cloned"  style={{width: '480px'}}>
                         {/* data-slick-index="5" id="" aria-hidden="true" tabindex="-1" */}
                                 <div className="testimonial-stars">
@@ -333,11 +334,11 @@ const Home = () => {
                                 <button type="button"  id="slick-slide-control30" >1</button>
                                 {/* role="presentation" role="tab" aria-controls="slick-slide30" aria-label="1 of 3" tabindex="-1" */}
                                 </li>
-                                <li role="presentation" class="">
+                                <li role="presentation" className="">
                                     <button type="button"  id="slick-slide-control31" >2</button>
                                     {/* role="tab" aria-controls="slick-slide31" aria-label="2 of 3" tabindex="0" aria-selected="true" */}
                                     </li>
-                                    <li role="presentation" class="slick-active">
+                                    <li role="presentation" className="slick-active">
                                         <button type="button"  id="slick-slide-control32" >3</button>
                                         {/*  role="tab" aria-controls="slick-slide32" aria-label="3 of 3" tabindex="-1" */}
                                         </li>

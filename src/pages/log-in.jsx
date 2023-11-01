@@ -3,11 +3,14 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 // import { AppContext } from "./AppProvider";
-
+import { useStateContext } from "./AppProvider";
+import { Notify } from "notiflix";
 
 
 const Login = () =>{
 
+
+const {Loged_user} = useStateContext()
 const [email,setEmail] = useState()
 const [password,setPassword] = useState()
 const [error,setError] = useState({})
@@ -56,16 +59,32 @@ if (!email.trim()) {
     try {
       const r = await axios.post('https://holiday-planner-4lnj.onrender.com/api/v1/auth/login',Data)
 
-      console.log(r.data)
+      console.log("user:",r.data)
       localStorage.setItem("data",JSON.stringify((r.data)))
    
      
-      alert("continue")
-      window.location.href ='dashboard'
-      console.log(res)
-      localStorage.setItem(res)
+      // alert("continue")
+      Notify.success("login sussessfully")
+      // window.location.href ='dashboard'
+      // console.log(r)
+      // localStorage.setItem(r)
+     console.log("Loged_user:",Loged_user)
 
-  
+
+
+     let userData = JSON.parse(localStorage.getItem("data"));
+     let token = userData?.access_token;
+     let Email = userData?.user.email;
+     let loged = userData?.user.role;
+      if (loged =="admin") {
+         window.location.href ='dashboard'
+      // console.log(res)
+      // localStorage.setItem(res)
+        console.log("loged user is admin");
+      }else {
+        window.location.href ='/'
+        console.log("loged user is not admin");
+      }
  
    } 
    
@@ -73,10 +92,12 @@ if (!email.trim()) {
      console.log(err);
 
      if(err.response.status == 404){
-      alert("Incorrect email or password")
+      Notify.success("Incorrect email or password")
+   
      }
      if(err.response.status == 401){
-      alert("Incorrect email or password")
+      Notify.success("Incorrect email or password")
+   
      }
    }
   }

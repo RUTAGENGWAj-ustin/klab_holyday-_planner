@@ -35,8 +35,10 @@ export const AppProvider = ({ children }) => {
   
   
   let userData = JSON.parse(localStorage.getItem("data"));
- let token = userData.access_token;
- let Email = userData.user.email;
+ let token = userData?.access_token;
+ let Email = userData?.user.email;
+ let Id = userData?.user._id;
+ console.log("idvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv",Id,Email);
  console.log("token:",token);
   const loginMutation = useMutation({
     mutationFn: async (data) => {
@@ -84,6 +86,7 @@ const { data: fetchUsersData,} = useQuery({
         },
       }
       );
+      console.log("logwedssssssssssssssssssssssssssssssssssssssss",res)
       if (isError) {
         return<h1>Sorry there is an Error</h1>
       }

@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import { Notify } from 'notiflix';
+import { Notify,Report } from 'notiflix';
+import {AiOutlineCloseCircle} from "react-icons/ai"
 
-
-function Create_tour() {
+function Create_tour({handleCreateClick}) {
     
   
             const onSubmit = async (tour) => {
@@ -28,13 +28,19 @@ function Create_tour() {
                     },
                   }
                 );
-                Notify.success("tour created sussessfully")
+                Report.success(
+                  'tour created sussessfully',
+                  '"your tour has created." <br/><br/>- you may continue',
+                  'Okay',
+                  );
+                // Notify.success("tour created sussessfully")
                 if (res.data) {
                   console.log("Tour created", res.data);
                 }
                 setTimeout(() =>{
                   window.location.reload();
                 },3000 );
+                
               } catch (error) {
                 console.error("Error fetching data:", error);
               }
@@ -46,9 +52,10 @@ function Create_tour() {
             } = useForm();
           
   return (
-    <div className="create_tour_dash">
+    <div className="create_tour_dash"  >
       <div className="login-form-container">
                             <form action="" method="POST" onSubmit={handleSubmit(onSubmit)} >
+                            <AiOutlineCloseCircle onClick={handleCreateClick} className='edit_cancer'/>
                               <div className="login-form-title" >
                                         <h1>Create tour</h1>
                                         

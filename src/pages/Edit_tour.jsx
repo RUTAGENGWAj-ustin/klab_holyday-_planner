@@ -6,7 +6,7 @@ import {AiOutlineCloseCircle} from "react-icons/ai"
 
 
 
-function Edit_tour({item}) {
+function Edit_tour({handleEditClick,item}) {
 
 
           const [title,setTittle] = useState(item.Title)
@@ -22,8 +22,9 @@ function Edit_tour({item}) {
           
 
 
-            const handleEditClick = (e) => {
+            const handleEEditClick = (e) => {
                     e.preventDefault();
+                    
                    
                     const  update = {
                             Title:title,
@@ -34,10 +35,15 @@ function Edit_tour({item}) {
                             Discount:Discount,
                             Duration:Duration,  
                     };
+              
+
                     axios.put(`https://holiday-planner-4lnj.onrender.com/api/v1/tour/update/${item._id}`,
                     update).then((response) => {
-                              alert("sckdnegrjhweksl")
+                      Notify.success("tour edited sussessfully")
+                      
+
                     })
+                    
                     .catch((error) => {
                               alert(error);
                     })
@@ -46,11 +52,11 @@ function Edit_tour({item}) {
                   };
           
   return (
-    <div className="create_tour_dash">
+    <div className="create_tour_dash" >
       <div className="login-form-container">
           
-                            <form action="" method="PUT" onSubmit={handleEditClick} >
-                            <div><AiOutlineCloseCircle onClick={() => window.location.href("Dash_tour")}/></div>
+                            <form action="" method="PUT" onSubmit={handleEEditClick} >
+                            <div><AiOutlineCloseCircle onClick={handleEditClick} className='edit_cancer'/></div>
                               <div className="login-form-title" >
                                         <h1  >Edit tour</h1>
                                         
@@ -161,10 +167,15 @@ function Edit_tour({item}) {
                                                                        
                                 <button 
                                 className="lig-in-button"
-                                 type="" 
+                                 type="submit" 
                               //    onSubmit={SignUp}
                                  ><p>Save</p></button>
                               </div>
+                              {/* <button 
+                                className="lig-in-button"
+                                 type="submit" 
+                              onClick={handleEditClick}
+                                 ><p>cance</p></button> */}
                               <div className="login-SM">
                                 
                               </div>

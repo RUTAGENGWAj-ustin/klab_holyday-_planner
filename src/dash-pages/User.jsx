@@ -7,6 +7,8 @@ import { useQuery } from "@tanstack/react-query";
 import Axios from "axios";
 import { useStateContext } from "../pages/AppProvider";
 import Notiflix from "notiflix";
+import {FaTrash} from "react-icons/fa"
+import {BsPencilFill} from "react-icons/bs"
 
 
 const User = () =>{
@@ -110,15 +112,15 @@ const User = () =>{
 {fetchUsersData?.map((item, index) => ( 
         
           <tr key={item._id}>
-          <td><img src="/logo.png" alt="" /></td>
+          <td><img src="/blank-profile-picture.webp" alt="" className="profille_users_blank" /></td>
           <td>{item.fullName}</td>
           <td>{item.email}</td>
           {/* <div className="pass"><p>{item.password}</p></div> */}
           <td>{item.phone}</td>
           <td>{item.location}</td>
           <td>{item.role}</td>
-          <td><button onClick={() => handleEditClick(item)}><p>Edit</p></button></td>
-           <td><button onClick={() => handleDeleteClick(item)}><p>Delete</p></button></td>
+          <td><button onClick={() => handleEditClick(item)}><BsPencilFill  className="pen_button_icon"/></button></td>
+           <td><button onClick={() => handleDeleteClick(item)}><FaTrash className="trash_button_icon"/></button></td>
            </tr>
           
 

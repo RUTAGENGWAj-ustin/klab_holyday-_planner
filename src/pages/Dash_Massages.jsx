@@ -29,7 +29,7 @@ function Dash_Massages() {
                               <td>{item.phone}</td>
                               <td>{item.__v}</td>
                               <td>{item.message}</td>
-                              
+                              <td><button>Replay</button></td>
                               
                               </tr> 
                      

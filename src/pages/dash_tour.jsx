@@ -6,6 +6,9 @@ import { useState } from "react";
 import Notiflix from 'notiflix';
 import Create_tour from "./Create_tour";
 import Edit_tour from "./Edit_tour";
+import {FaTrash} from "react-icons/fa"
+import {BsPencilFill} from "react-icons/bs"
+
 
 
 
@@ -46,7 +49,7 @@ const Dash_tour = () =>{
     
     //  const { tours, deleteTour } = usestecontext();
    
-      const handleConfirmDelete = async() => {
+      const handleConfirmDelete = async(id) => {
         try {
      Notiflix.Confirm.show(
       'Confirm delete tour',
@@ -54,7 +57,7 @@ const Dash_tour = () =>{
       'Yes',
       'No',
       async() => {
-        const res =  await Axios.delete(`https://holiday-planner-4lnj.onrender.com/api/v1/tour/delete/${tourToDelete._id}`,{
+        const res =  await Axios.delete(`https://holiday-planner-4lnj.onrender.com/api/v1/tour/delete/${id}`,{
           headers:{
             Authorization:`Bearer ${localStorage.getItem("token")}`
           }
@@ -62,7 +65,7 @@ const Dash_tour = () =>{
         window.location.reload()
       },
       () => {
-      alert('If you say so...');
+     
       },
       {
       },
@@ -71,11 +74,11 @@ const Dash_tour = () =>{
           console.log(error);
         }
       };
-      const handleDeleteClick = (tours) => {
-        setTourToDelete(tours);
-        handleConfirmDelete()
-        // setShowDeleteConfirm(true);
-      };
+      // const handleDeleteClick = (tours) => {
+      //   setTourToDelete(tours);
+      //   handleConfirmDelete()
+      //   // setShowDeleteConfirm(true);
+      // };
       const handleCancelDelete = () => {
         setShowDeleteConfirm(false);
       };
@@ -90,7 +93,7 @@ const Dash_tour = () =>{
 return(
     
           <div>
-            {createTour && <Create_tour handleEditClick = {handleCreateClick}/>}
+            {createTour && <Create_tour handleCreateClick = {handleCreateClick}/>}
             {EditTour && <Edit_tour handleEditClick = {handleEditClick}  item = {edittour}/>}
             <div className="dash_tour_headers">
             <h1 className="user-title">List of tour</h1>
@@ -100,29 +103,30 @@ return(
             <table>
             <thead>
               <tr key="">
-                <th>backdropImage</th>
+                <th className="left_table_corner">backdropImage</th>
                 <th>Title</th>
                 <th>Description</th>
                 <th>destination</th>
                 <th>Duration</th>
                 <th>GroupSize</th>
                 <th>Price</th>
-                <th>Edit</th>
-                <th>Delete</th>
+      
+                <th className="right_table_corner">Actions</th>
               </tr>
               </thead>
               <tbody> 
           {posts.map((item, index) => (
              <tr key={item._id}>
-              <td><img src={item.backdropImage} alt=""  className="table_tour_img"/></td>
+              <td className="table_left_side"><img src={item.backdropImage} alt=""  className="table_tour_img"/></td>
               <td>{item.Title}</td>
               <td>{item.Description}</td>
           <td>{item.destination}</td>
           <td>{item.Duration}</td>
           <td>{item.GroupSize}</td>
           <td>{item.Price}</td>
-          <td><button onClick={() => handleEditClick(item)}>Edit</button></td>
-           <td><button onClick={() => handleDeleteClick(item)}>Delete</button></td>
+          <td className="table_right_side"><button onClick={() => handleEditClick(item)}><BsPencilFill  className="pen_button_icon"/></button>
+          <button onClick={() => handleConfirmDelete(item._id)}><FaTrash className="trash_button_icon"/></button></td>
+         
            </tr>
           
                     ))} 

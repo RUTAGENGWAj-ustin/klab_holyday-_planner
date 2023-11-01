@@ -7,6 +7,7 @@
 .outlet{
       padding-top: 80px;
   margin-left: 20px;
+  background-color: #F9F9F9;
 }
 .main-dash{
          
@@ -89,6 +90,16 @@ ul li .dash-nav-icon{
 }
 .NavLink{
       display: flex;
+      text-decoration: none;
+      gap: 2rem;
+}
+.NavLink:hover{
+     
+      padding-bottom: 10px;
+      padding-left: none;
+      padding-right: 20px;
+      border-bottom: 2px solid rgb(179, 170, 154);
+     
 }
 .dash-popular-place-list ul li .places-icon{
           margin-right: 3rem;
@@ -105,10 +116,20 @@ ul li .dash-nav-icon{
           color: #8095ff;
 }
 .dash-log-out{
+   margin-top: 300px;
    border-top: 1px solid rgba(69, 92, 93,0.4);
    display: flex;
    padding-top: 40px;
    padding-bottom: 40px;
+}
+.dash-log-out p:hover
+{
+      color: red;
+      cursor: pointer;
+}
+.Log-out-icon:hover{
+      color: red;
+      cursor: pointer;
 }
 .Log-out-icon{
 width: 25px;
@@ -170,8 +191,14 @@ margin-right: 2rem;
 .dush-top-menu .modes .mode-color .mode-text{
       font-size: 20px;
       margin: 5px;
+
 }
 
+.nav_paragraph{
+      font-size: 20px;
+      font-weight: 600;
+      font-family: Arial, Helvetica, sans-serif;
+}
 
 
 
@@ -321,6 +348,7 @@ margin-right: 2rem;
                 color: #8095ff;
       }
       .dash-log-out{
+         margin-top: 200px; 
          border-top: 1px solid rgba(69, 92, 93,0.4);
          display: flex;
          padding-top: 20px;
@@ -336,9 +364,7 @@ margin-right: 2rem;
       margin-bottom: 2rem;
       margin-right: 2rem;
       }
-      .Log-out-icon:hover{
-            color: red;
-      }
+     
       .right-dash{
              position: fixed;
                 width: 100%;

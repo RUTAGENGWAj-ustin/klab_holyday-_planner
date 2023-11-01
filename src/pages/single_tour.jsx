@@ -106,7 +106,7 @@ Rwanda, officially the Republic of Rwanda, is a landlocked country in the Great 
                       </div>
                </div>
                <div className="right-side">
-               <form action="" className="booking-form">
+               <form action="" className="booking-form sinle_tour">
                          <div className="top-form x">
                          <div class="line-title">
                                 <h4 class="h4-title">Book This Tour</h4>

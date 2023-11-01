@@ -505,7 +505,7 @@ textarea {
 
   .right-side-bottom{
       background-image: url(get-a-questions-back.jpg);
-      background-color: #C29D59;
+      /* background-color: #C29D59; */
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
