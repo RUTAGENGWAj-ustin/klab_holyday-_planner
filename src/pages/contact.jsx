@@ -4,7 +4,7 @@ import {AiTwotonePhone} from "react-icons/ai";
 import {FaEnvelope,FaBook} from"react-icons/fa";
 import { useState } from "react";
 import axios from "axios";
-
+import {  Report} from "notiflix"
 
 const Contact = () =>{
     const [FullName,setFillname] = useState()
@@ -25,9 +25,14 @@ const Contact = () =>{
     try {
        const response = await axios.post('https://holiday-planner-4lnj.onrender.com/api/v1/contact/submit',sendEmail).then(()=>{
        
-         alert("message sent")
+       Report.success(
+        'Massage sent Success',
+        '"thanks." <br/>dddddd<br/>',
+        'Okay',
+        );
        
        });
+       window.location.reload()
        console.log("weeeeeeeeeeeeeeeeeee:",response.data);
    
      } catch(err){

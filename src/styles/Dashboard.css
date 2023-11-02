@@ -94,8 +94,10 @@ ul li .dash-nav-icon{
       gap: 2rem;
 }
 .NavLink:hover{
-     
+      background-color: #ffffff;
+      border-radius: 0 20px 20px 0;
       padding-bottom: 10px;
+      padding-top: 10px;
       padding-left: none;
       padding-right: 20px;
       border-bottom: 2px solid rgb(179, 170, 154);
@@ -375,6 +377,12 @@ margin-right: 2rem;
                 box-shadow: 0 0 10px black;
                
       }
+      .NavLink:hover{
+     
+            
+            border-bottom: none;
+           
+      }
       .dush-top-menu .user-names{
             padding: 0;
             margin: 0;
@@ -434,3 +442,80 @@ margin-right: 2rem;
      .loged_use_menu{
       font-size: small;
      }
+     
+     .tour_info_container{
+      display: flex;
+      margin-bottom: 30px;
+     }
+     .min_tour_info_container{
+      display: block;
+      background-color: #FF8097;
+       width: 300px;
+       height: 200px;
+       margin: 30px;
+       border-radius: 30px;
+       padding: 30px;
+     }
+     .min-tour_info_container{
+      display: block;
+      background-color:#8095ff;
+       width: 300px;
+       height: 200px;
+       margin: 30px;
+       border-radius: 30px;
+       padding: 30px
+     }
+     .min-tour-info_container{
+      display: block;
+      background-color:#24dcd6;
+       width: 300px;
+       height: 200px;
+       margin: 30px;
+       border-radius: 30px;
+       padding: 30px
+     }
+     .min-tour_info_container h1{
+      color: white;
+     }
+     
+     
+      /*responsiveness*/
+
+      @media screen and (max-width:390px) {
+            
+            .tour_info_container{
+                  display: block;
+                  margin-bottom: 3px;
+                 }
+                 .min_tour_info_container{
+                  display: block;
+                  background-color: #FF8097;
+                   width: 250px;
+                   height: 200px;
+                   margin: 30px;
+                   border-radius: 30px;
+                   padding: 30px;
+                 }
+                 .min-tour_info_container{
+                  display: block;
+                  background-color:#8095ff;
+                  width: 250px;
+                   height: 200px;
+                   margin: 30px;
+                   border-radius: 30px;
+                   padding: 30px
+                 }
+                 .min-tour-info_container{
+                  display: block;
+                  background-color:#24dcd6;
+                  width: 250px;
+                   height: 200px;
+                   margin: 30px;
+                   border-radius: 30px;
+                   padding: 30px
+                 }
+                 .min-tour_info_container h1{
+                  color: white;
+                 }
+            
+      }

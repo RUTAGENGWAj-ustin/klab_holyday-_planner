@@ -43,6 +43,7 @@ function Edit_tour({handleEditClick,item}) {
                       
 
                     })
+                    window.location.reload()
                     
                     .catch((error) => {
                               alert(error);

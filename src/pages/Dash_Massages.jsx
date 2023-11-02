@@ -8,6 +8,10 @@ function Dash_Massages() {
 
   return (
     <div>
+        <div className="dash_tour_headers">
+            <h1 className="user-title"> Email Message</h1>
+            
+            </div>
       <table>
           <thead>
                     <th>ID</th>

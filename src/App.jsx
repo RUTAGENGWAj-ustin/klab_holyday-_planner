@@ -42,6 +42,7 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query'
 import AppProvider from "./pages/AppProvider";
+import Booked from "./pages/Booked";
 // import { getTodos, postTodo } from '../my-api'
 
 // Create a client
@@ -79,6 +80,7 @@ const App = () => {
             <Route path="user" element={<User/>} />
             <Route path="Dash_tour" element={<Dash_tour/>} />
             <Route path="Dash_massage" element={<Dash_Massages/>}/>
+            <Route path="Booked" element={<Booked/>}/>
             
             <Route
               path="*"

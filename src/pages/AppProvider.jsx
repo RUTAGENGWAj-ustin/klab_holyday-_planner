@@ -57,7 +57,7 @@ export const AppProvider = ({ children }) => {
   console.log("hollo")
 // list of all users
 
-const { data: fetchUsersData,} = useQuery({
+const { data: fetchUsersData} = useQuery({
   queryKey: ["users"],
   queryFn: async () => {
     const response = await axios.get(url + `/api/v1/auth/users`, {
@@ -129,10 +129,29 @@ const { data: fetchUsersData,} = useQuery({
      
     }
   });
+  
+  /*list of boook*/
+  const {data: Booked} = useQuery({
+    queryKey:["Booked"],
+    queryFn: async () =>{
+      const response = await axios.get(url+ `/api/v1/booking/view`,
+      {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      }
+      )
+      console.log("contact",response.data);
+      return (response.data);
+     
+    }
+  });
+  
+  
 
   
   return (
-    <AppContext.Provider value={{ tours, loginMutation, Loged_user,fetchUsersData,Message }}>
+    <AppContext.Provider value={{ tours, loginMutation, Loged_user,fetchUsersData,Message,Booked }}>
       {children}
     </AppContext.Provider>
   );

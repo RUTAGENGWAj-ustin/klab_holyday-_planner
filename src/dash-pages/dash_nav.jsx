@@ -30,8 +30,8 @@ function chackuser() {
       }
 }
       function Logout() {
-            localStorage.removeItem(data);
-            window.location.href("/")
+            localStorage.removeItem("data")
+            window.location.href="/";
       }
           return(
 <div>
@@ -53,6 +53,7 @@ function chackuser() {
                                                  {chackuser}
                                                  <li><NavLink className="NavLink" to="Dash_tour"><div className="dash-nav-icon"><GiCommercialAirplane className="dash-nav-icon"/></div><p className="nav_paragraph"> Tours</p></NavLink></li>
                                                  <li><NavLink className="NavLink" to="Dash_massage"><div className="dash-nav-icon"><AiOutlineMail className="dash-nav-icon"/></div><p className="nav_paragraph">Massages</p></NavLink></li>
+                                                 <li><NavLink className="NavLink" to="Booked"><div className="dash-nav-icon"><AiOutlineMail className="dash-nav-icon"/></div><p className="nav_paragraph">Booked</p></NavLink></li>
                                                  {/* <li><div className="dash-nav-icon"><MdOutlineUpcoming className="dash-nav-icon"/></div><p>Upcoming</p></li>
                                                  <li><div className="dash-nav-icon"><LiaUmbrellaBeachSolid className="dash-nav-icon"/></div><p>Camps</p></li>
                                                  <li><div className="dash-nav-icon"><LuCalendarDays className="dash-nav-icon"/></div><p>Calender</p></li>
@@ -73,7 +74,7 @@ function chackuser() {
                              </div>
                     </div> */}
                     <div className="dash-log-out">
-                    <div className="places-icon"><TbLogout className="Log-out-icon" onClick={Logout}/></div><p onClick={()=> {window.location.href ='/'}}>Logout</p>
+                    <div className="places-icon"><TbLogout className="Log-out-icon" onClick={Logout}/></div><p onClick={Logout}>Logout</p>
                     </div>
                    </div>       
 </div>

@@ -1,5 +1,6 @@
 import React from "react";
 // import '../Dashboard/chat.css'
+import { useStateContext } from "./AppProvider";
 import {
   LineChart,
   Line,
@@ -56,6 +57,8 @@ const data = [
     amt: 2100,
   },
 ];
+
+
 // using Customized gives you access to all relevant chart props
 const CustomizedCross = (props) => {
   const { width, height, stroke, fill, formattedGraphicalItems } = props;
@@ -79,8 +82,30 @@ const CustomizedCross = (props) => {
   );
 };
 const Dashboard = () => {
+  const {tours} = useStateContext()
+  const { Message} = useStateContext()
+  const {fetchUsersData} = useStateContext()
   return (
     <div className="charts">
+      
+      
+      <div className="tour_info_container">
+        <div className="min_tour_info_container">
+          <h1>User we have</h1>
+        
+          <h1>{fetchUsersData.length}</h1>
+        </div>
+        <div className="min-tour-info_container">
+          <h1>Tour created</h1>
+          <h1>{tours.length}</h1>
+         
+        </div>
+        
+        <div className="min-tour_info_container">
+        <h1>Message we have</h1>
+          <h1>{Message.length}</h1>
+        </div>
+      </div>
     <ResponsiveContainer width="100%" height={500}>
       <LineChart
         width={500}

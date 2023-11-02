@@ -7,12 +7,18 @@ const  Stutus_loged =() => {
          let Email = userData?.user.email;
          let Xloged = userData?.user.role;
          console.log("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",Xloged);
+         
+         
+         function Logout() {
+            localStorage.removeItem("data")
+            window.location.href="/";
+      }
    
  
          if ( Xloged ==undefined) {
             return(<a href="/login" className="sec-btn" title="Reserve"><span>Login</span></a>) 
          }else{
-         return( <a href="/login" className="sec-btn" title="Reserve"><span>Logout</span></a>
+         return( <div  className="sec-btn" onClick={Logout}><span>Logout</span></div>
      
          )}
         }
