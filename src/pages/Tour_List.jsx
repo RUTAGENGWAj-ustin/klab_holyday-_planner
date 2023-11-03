@@ -57,6 +57,8 @@ const Tour_List = () =>{
         fetchapi();
        
       },[])
+      
+   
 
 
           return(
@@ -167,7 +169,7 @@ const Tour_List = () =>{
                                       </div>  
                                       
                            
-                              
+                            
                          </div>
                          <div className="bottom-form">
                               <textarea name="massege" id="" cols="30" rows="10" placeholder="Massage"></textarea>

@@ -8,14 +8,32 @@ import { useState,useEffect } from "react";
 
 import api from "../Api/api";
 import  Axios  from "axios";
+import axios from "axios";
 
 const Single_tour = () =>{
 
-
+  const d ="pending";
    const [posts,setPosts] = useState([]);
    const {Tid} = useParams();
+   const [date,setdate] = useState('')
+   const [userID,setUserID] = useState('')
+   const [paymentMethod,setPaymentMethod] = useState('')
+   const [status,setStatus] = useState('')
+   const [numberofticket,setnumberofticket] = useState('')
+   const [fullName,setFullname] = useState('')
+const [phone,setPhone] = useState('')
+const [email,setEmail] = useState('');
+const [confemail,setConfEmail] = useState('');
+   
+   
 
 
+   let userData = JSON.parse(localStorage.getItem("data"));
+   let token = userData?.access_token;
+   let Email = userData?.user.email;
+   let userid = userData?.user._id;
+   
+   
   useEffect(() => {
     const fetchapi = async () => {
       try {
@@ -39,6 +57,161 @@ const Single_tour = () =>{
     console.log(posts);
   
   },[])
+  
+
+    const Logeduser = async () => {
+      try {
+        const response = await Axios.get(`https://holiday-planner-4lnj.onrender.com/api/v1/auth/users/getOne?fieldName=email&value=${Email}`);
+      console.log("logoooooooooooooooo:",response.data)
+      setUserID(response.data._id)
+      
+      } catch(err){
+        if(err.response){
+  console.log(err.response.data.massage);
+  console.log(err.response.status);
+  console.log(err.response.headers);
+        }
+        else{
+              
+          console.log(`Error:${err.message}`);
+        }
+      }
+    }
+    Logeduser();
+    
+    
+    
+    
+    
+    
+    
+   
+
+const [error,setError] = useState({})
+
+
+const SignUp = async (e)=> {
+
+    // alert("form is valid")
+    const data = {fullName,email,  password,  phone,  location,  role}
+
+
+
+      try {
+         axios.post('https://holiday-planner-4lnj.onrender.com/api/v1/auth/signup',data).then(()=>{
+        
+          alert("signup sus")
+          window.location.href ='login'
+        });
+    
+      } catch(err){
+        if(err.response){
+  console.log(err.response.data.massage);
+  console.log(err.response.status);
+  console.log(err.response.headers);
+        }
+        else{
+              console.log(data);
+          console.log(`Error:${err.message}`);
+        }
+      }
+
+   console.log(data)
+
+    
+  }
+    
+ 
+   
+  
+
+  
+     
+      // settourid(posts._id)
+      // setisPayed(false)
+  
+
+
+     const Booking = async (e) => {
+      e.preventDefault();
+      
+      const validateForm = {}
+      if (!fullName.trim()) {
+        validateForm.fullName="full Name required"
+        
+      }
+      if (!email.trim()) {
+        validateForm.email="Email required"
+        
+      }else if(!/\S+@\S+\.\S+/.test(email)){
+      validateForm.email = "email is not valid"
+      }
+      if (confemail !== email) {
+        validateForm.confemail = "password not matched"
+      }
+      if (!phone.trim()) {
+        validateForm.phone="phone required"
+        
+      }
+      if (!date.trim()) {
+        validateForm.data="location required"
+        
+      } 
+      if (!paymentMethod.trim()) {
+        validateForm.paymentMethod="location required"
+        
+      } 
+      if (!status.trim()) {
+        validateForm.status="location required"
+        
+      } 
+      if (!numberofticket.trim()) {
+        validateForm.numberofticket="location required"
+        
+      } 
+     
+     
+    
+      setError(validateForm)
+      if (Object.keys(validateForm).length === 0) {
+      const booking_data = {
+      
+        tourID:posts._id,
+        fullname:fullName,
+        email:email,
+        confirmEmail:confemail,
+        phone:phone,
+        date:date,
+        paymentMethod:paymentMethod,
+        status:status,
+        numberOfTickets:numberofticket,
+
+      
+      }
+      console.log("boooooooooooooooooooooo:", booking_data);
+      try {
+        const response = axios.post('https://holiday-planner-4lnj.onrender.com/api/v1/booking/create',booking_data).then(()=>{
+        
+        alert("signup sus")
+      
+      });
+  
+        console.log(response);
+        
+      } catch(err){
+        if(err.response){
+  console.log(err.response.data.massage);
+  console.log(err.response.status);
+  console.log(err.response.headers);
+        }
+        else{
+          console.log(`Error:${err.message}`);
+        }
+      }
+     }
+    }
+   
+
        
 
        
@@ -106,49 +279,122 @@ Rwanda, officially the Republic of Rwanda, is a landlocked country in the Great 
                       </div>
                </div>
                <div className="right-side">
-               <form action="" className="booking-form sinle_tour">
+               <form action="" className="booking-form sinle_tour" onSubmit={Booking}>
                          <div className="top-form x">
                          <div class="line-title">
                                 <h4 class="h4-title">Book This Tour</h4>
                             </div>
                                       <div className="in">
                                         <span className="icon"><BsFillPersonFill/></span>
-                                        <input type="text" placeholder="Full Name *" required="" class="form-input"/>
+                                        <input 
+                                        type="text" 
+                                        placeholder="Full Name *" 
+                                        required="" 
+                                        class="form-input"
+                                        value={fullName}
+                                        onChange={(e) => setFullname(e.target.value)}
+                                        />
+                                        {error.fullName && <span className="error-validation">{error.fullName}</span>}
                                       </div>  
                                       <div className="in">
                                         <span className="icon"><AiTwotonePhone/></span>
-                                        <input type="text" placeholder="Email *" required="" class="form-input"/>
+                                        <input 
+                                        type="text" 
+                                        placeholder="Email *" 
+                                        required="" 
+                                        class="form-input"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        />
+                                        {error.email && <span className="error-validation">{error.email}</span>}
                                       </div>  
                                       <div className="in">
                                         <span className="icon"><AiTwotonePhone/></span>
-                                        <input type="text" placeholder="Confirm Email *" required="" class="form-input"/>
+                                        <input 
+                                        type="text" 
+                                        placeholder="Confirm Email *" 
+                                        required="" 
+                                        class="form-input"
+                                        value={confemail}
+                                        onChange={(e) => setConfEmail(e.target.value)}
+                                        />
+                                        {error.confemail && <span className="error-validation">{error.confemail}</span>}
                                       </div>  
                                       <div className="in">
                                         <span className="icon"><AiTwotonePhone/></span>
-                                        <input type="text" placeholder="Phone *" required="" class="form-input"/>
+                                        <input 
+                                        type="text" 
+                                        placeholder="Phone *" 
+                                        required="" 
+                                        class="form-input"
+                                        value={phone}
+                                        onChange={(e) => setPhone(e.target.value)}
+                                        />
+                                        {error.phone && <span className="error-validation">{error.phone}</span>}
                                       </div>  
                               
                                           
                               <div className="in">
                                         <span className="icon"><FaEnvelope/></span>
-                                        <input type="date" placeholder="mm/dd/yyyy *" required="" class="form-input"/>
+                                        <input 
+                                        type="date" 
+                                        placeholder="mm/dd/yyyy *" 
+                                        required="" 
+                                        class="form-input"
+                                        value={date}
+                                        onChange={(e) => setdate(e.target.value)}
+                                        
+                                        />
+                                        {error.data && <span className="error-validation">{error.data}</span>}
                                       </div>  
+                                    
                                       <div className="in">
                                         <span className="icon"><FaBook/></span>
-                                        <input type="text" placeholder="Number of Tickets *" required="" class="form-input"/>
-                                      </div>  
-                                      <div className="in checkbox">
-                                        <input type="checkbox" placeholder=" " required="" class="form-input"/>
-                                            <p>Check Availability</p> 
-                                      </div>  
+                                        <input 
+                                        type="text" 
+                                        placeholder="payment Method*" 
+                                        required="" 
+                                        class="form-input"
+                                        value={paymentMethod}
+                                        onChange={(e) => setPaymentMethod(e.target.value)}
+                                        />
+                                        {error.paymentMethod && <span className="error-validation">{error.paymentMethod}</span>}
+                                      </div> 
+                                      <div className="in">
+                                        <span className="icon"><FaBook/></span>
+                                        <input 
+                                        type="text" 
+                                        placeholder=" stutus *" 
+                                        required="" 
+                                        class="form-input"
+                                        value={status}
+                                        onChange={(e) => setStatus(e.target.value)}
+                                        />
+                                        {error.status && <span className="error-validation">{error.status}</span>}
+                                      </div> 
+                                      <div className="in">
+                                        <span className="icon"><FaBook/></span>
+                                        <input 
+                                        type="number" 
+                                        placeholder="Number of Tickets *" 
+                                        required="" 
+                                        class="form-input"
+                                        value={numberofticket}
+                                        onChange={(e) => setnumberofticket(e.target.value)}
+                                        />
+                                        {error.numberofticket && <span className="error-validation">{error.numberofticket}</span>}
+                                      </div> 
+                                                <div className="bottom-form">
+                             
+                              <button className="form-contact-botton"><span>Book now</span></button>
+                         </div>
+                                      
+                                     
                                       
                            
                               
                          </div>
-                         <div className="bottom-form">
-                              <textarea name="massege" id="" cols="30" rows="10" placeholder="Massage"></textarea>
-                              <button className="form-contact-botton"><span>Book now</span></button>
-                         </div>
+                        
                       </form>
                     <div className="right-side-top x">
                <div className="line-title">
