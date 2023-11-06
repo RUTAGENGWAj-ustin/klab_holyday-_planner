@@ -93,17 +93,17 @@ const Dashboard = () => {
         <div className="min_tour_info_container">
           <h1>User we have</h1>
         
-          <h1>{fetchUsersData.length}</h1>
+          {/* <h1>{fetchUsersData.length}</h1> */}
         </div>
         <div className="min-tour-info_container">
           <h1>Tour created</h1>
-          <h1>{tours.length}</h1>
+          {/* <h1>{tours.length}</h1> */}
          
         </div>
         
         <div className="min-tour_info_container">
         <h1>Message we have</h1>
-          <h1>{Message.length}</h1>
+          {/* <h1>{Message.length}</h1> */}
         </div>
       </div>
     <ResponsiveContainer width="100%" height={500}>
