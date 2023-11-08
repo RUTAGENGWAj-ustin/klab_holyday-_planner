@@ -28,7 +28,7 @@ const Dash_tour = () =>{
     
     
     const[pagenumber,setpagenumber] = useState(0)
-    const bookpage = 7;
+    const bookpage = 2;
     const pageVisited = pagenumber*bookpage;
     const display = posts.slice(pageVisited,pageVisited+bookpage);
     const changepage = ({selected}) =>{
