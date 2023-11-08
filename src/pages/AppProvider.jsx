@@ -12,7 +12,7 @@ export const AppProvider = ({ children }) => {
   const { data: tours, isLoading: ToursLoading } = useQuery({
     queryKey: ["tours"],
     queryFn: async () => {
-      const res = await axios.get(url + `/api/v1/tour/`);
+      const res = await axios.get(url + `/api/v1/tour`);
       return res.data;
     },
   });

@@ -8,10 +8,57 @@ import {FaStar}  from "react-icons/fa";
 
 
 const Home = () => {
+    const [change,setChange] = useState(0)
 
+const array = [
+    {   
+        img:"houses.jpg",
+        descr1:"Life is Short and",
+        descr2:"The World is Wide.",
+        paragraph:"A journey of a 1000 miles starts with a single step. Import the full demo content with 1 click and create a head-turning website for your travel agency.",
+    },
+    {
+        img:"cal.jpg",
+        descr1:"Life is Short and",
+        descr2:"The World is Wide.",
+        paragraph:"A journey of a 1000 miles starts with a single step. Import the full demo content with 1 click and create a head-turning website for your travel agency.",
+    },
+    {
+        img:"mountain.jpg",
+        descr1:"Life is Short and",
+        descr2:"The World is Wide.",
+        paragraph:"A journey of a 1000 miles starts with a single step. Import the full demo content with 1 click and create a head-turning website for your travel agency.",
+    }
+]
 
+useEffect(() => {
+    const interval = setInterval(() => {
+      setChange((prevNum) => (prevNum >= 2 ? 0 : prevNum + 1));
+    }, 3000); // Increment every 3 second
 
-    
+    return () => clearInterval(interval); // Cleanup on unmount
+  }, []);
+
+function  Next() {
+    setTimeout(() => {
+       if(change < 2) {
+            setChange(change + 1);
+        }
+        else{
+            setChange(0);
+        }
+    },1000);
+       
+}
+function  Priv() {
+   if (change > 0) {
+    setChange(change-1) ;
+   }else{
+    setChange(2)
+   }
+  
+}
+   console.log("image",change); 
 
         // const {posts} = AppProvider;
        const [posts,setPosts] = useState([])
@@ -62,11 +109,11 @@ const Home = () => {
                     <div>
                           <section className="slaides">
                              <div className="container">
-                             <button className="slide-arrow prev-arrow">
+                             <button className="slide-arrow prev-arrow" onClick={ Priv}>
                                 <span>Prev</span></button>
 
                              <div className="txd">
-                              <img src="houses.jpg" alt=""  className="image_scrool"/>
+                              <img src={array[change].img} alt=""  className="image_scrool"/>
                               <div className="content">
                               
                                     <h1 className="h1-title">Life is Short and </h1>
@@ -75,7 +122,7 @@ const Home = () => {
                                 
                               </div>
                              </div>
-                             <button className="slide-arrow prev-Next"><span>Next</span></button>
+                             <button className="slide-arrow prev-Next" onClick={Next}><span>Next</span></button>
                              </div>
                               
                               
