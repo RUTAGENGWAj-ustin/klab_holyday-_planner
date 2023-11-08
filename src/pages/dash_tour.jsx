@@ -153,6 +153,8 @@ return(
       )} 
       </tbody>
       </table>
+      
+      </div> 
       <ReactPaginate 
       pageCount={Math.ceil(posts?.length /bookpage)}
       previousLabel = {"Prev"}
@@ -166,7 +168,6 @@ return(
       >
         
       </ReactPaginate>
-      </div> 
                     </div>
 );
 }
