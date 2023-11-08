@@ -9,6 +9,7 @@ import { useStateContext } from "../pages/AppProvider";
 import Notiflix from "notiflix";
 import {FaTrash} from "react-icons/fa"
 import {BsPencilFill} from "react-icons/bs"
+import ReactPaginate from "react-paginate";
 
 
 const User = () =>{
@@ -19,6 +20,19 @@ const User = () =>{
    
 
       const [editUser,setEditUser] = useState(false);
+      
+      
+      
+      const[pagenumber,setpagenumber] = useState(0)
+      const bookpage = 2;
+      const pageVisited = pagenumber*bookpage;
+      const display = fetchUsersData?.slice(pageVisited,pageVisited+bookpage);
+      const changepage = ({selected}) =>{
+        setpagenumber(selected)
+      };
+      
+      
+      
       // const [data,setData] = useState([])
 
       // setData(fetchUsersData)
@@ -44,6 +58,8 @@ const User = () =>{
 
         
         //  const [userarry,setUserarry] = useState([]);
+        
+        
 
         const handleConfirmDelete = async() => {
           try {
@@ -109,7 +125,7 @@ const User = () =>{
             
           
          <tbody>   
-{fetchUsersData?.map((item, index) => ( 
+{display?.map((item, index) => ( 
         
           <tr key={item._id}>
           <td><img src="/blank-profile-picture.webp" alt="" className="profille_users_blank" /></td>
@@ -136,6 +152,19 @@ const User = () =>{
       )} 
 </tbody>
 </table>
+<ReactPaginate 
+      pageCount={Math.ceil(fetchUsersData?.length /bookpage)}
+      previousLabel = {"Prev"}
+      nextLabel = {"Next"}
+      onPageChange={changepage}
+      containerClassName="pagination"
+      previousLinkClassName="privBtn"
+      nextLinkClassName="NextBtn"
+      disabledClassName="disable"
+      activeClassName="paginationactive"
+      >
+        
+      </ReactPaginate>
 </div>
 </div>
 
