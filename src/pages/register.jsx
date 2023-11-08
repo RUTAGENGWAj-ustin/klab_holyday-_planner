@@ -9,6 +9,8 @@ const Register = () =>{
   const [posts,setPosts] = useState([]);
   const Navigate = useNavigate()
 
+  
+
 
   
 

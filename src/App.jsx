@@ -43,6 +43,8 @@ import {
 } from '@tanstack/react-query'
 import AppProvider from "./pages/AppProvider";
 import Booked from "./pages/Booked";
+import ProtectedRout from "./pages/ProtectedRout.jsx";
+import { set } from "react-hook-form";
 // import { getTodos, postTodo } from '../my-api'
 
 // Create a client
@@ -51,6 +53,12 @@ const queryClient = new QueryClient()
 
 
 const App = () => {
+//   let userData = JSON.parse(localStorage.getItem("data"));
+//   let token = userData?.access_token;
+
+// if (token !== undefined) {
+//    setUser(token)
+// }
 
 
   return (
@@ -68,13 +76,16 @@ const App = () => {
             <Route path="Tour_list" element={<Tour_list/>} />
             <Route path="Tour_list/:Tid" element={<Single_tour/>} />
             <Route path="Contact" element={<Contact/>} />
-            <Route path="login" element={<Login/>} />
+            <Route path="login" element={<Login />} />
             <Route path="Register" element={<Register/>} />
             </Route>
-            <Route path="Dashboard" element={<Layout1/>} >
+            <Route path="Dashboard" element={ <ProtectedRout user><Layout1  user/></ProtectedRout>} >
            
-            <Route index element={<Dashboard/>} />
-            <Route path="Dashboard" element={<Dashboard/>} />
+            <Route index element={  
+            <ProtectedRout>
+              <Dashboard/>
+              </ProtectedRout>} />
+            <Route path="Dashboard" element={ <Dashboard/>} />
             <Route path="Dashboard/Dash_menu" element={<Dash_menu/>} />
             <Route path="Dashboard/Dash_nav" element={<Dash_nav/>} />
             <Route path="user" element={<User/>} />

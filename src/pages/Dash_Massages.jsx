@@ -25,7 +25,7 @@ function Dash_Massages() {
                     
                     </thead>
                     <tbody>
-                    {Message.map((item, index) => (          
+                    {Message?.map((item, index) => (          
                      <tr key="">
                               <td>{item._id}</td>
                               <td>{item.name}</td>

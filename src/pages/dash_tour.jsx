@@ -8,6 +8,7 @@ import Create_tour from "./Create_tour";
 import Edit_tour from "./Edit_tour";
 import {FaTrash} from "react-icons/fa"
 import {BsPencilFill} from "react-icons/bs"
+import ReactPaginate from "react-paginate";
 
 
 
@@ -21,6 +22,19 @@ const Dash_tour = () =>{
   const [createTour,setCreateTour] = useState(false)
 
     const [posts,setPosts] = useState([]);
+    
+    
+    
+    
+    
+    const[pagenumber,setpagenumber] = useState(0)
+    const bookpage = 7;
+    const pageVisited = pagenumber*bookpage;
+    const display = posts.slice(pageVisited,pageVisited+bookpage);
+    const changepage = ({selected}) =>{
+      setpagenumber(selected)
+    };
+    
 
 
     const { data ,isLoading,isError} = useQuery({
@@ -139,6 +153,19 @@ return(
       )} 
       </tbody>
       </table>
+      <ReactPaginate 
+      pageCount={Math.ceil(posts?.length /bookpage)}
+      previousLabel = {"Prev"}
+      nextLabel = {"Next"}
+      onPageChange={changepage}
+      containerClassName="pagination"
+      previousLinkClassName="privBtn"
+      nextLinkClassName="NextBtn"
+      disabledClassName="disable"
+      activeClassName="paginationactive"
+      >
+        
+      </ReactPaginate>
       </div> 
                     </div>
 );
